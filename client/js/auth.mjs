@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"; //https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
 import {
   getAuth,
@@ -15,7 +15,7 @@ import {
   getDocs,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
-//Imports Above here
+// CDN imports above here for firebase (may change to normal imports)
 
 const firebaseConfig = {
   apiKey: "AIzaSyDIjD10qMfqnGoKpneMSUJYnbvXyq6utBY",
@@ -26,11 +26,12 @@ const firebaseConfig = {
   appId: "1:673587268452:web:86186e34bbb044199cc871",
 };
 
-// Initialize Firebase
+// Initialise Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
+//Takes in email, password and role as a string then creates the user with that information
 export function createUser(email, password, role) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -42,12 +43,15 @@ export function createUser(email, password, role) {
     });
 }
 
+//sets the role for the user within the database
 async function setDbRole(_role, userCredential) {
   await setDoc(doc(db, "users", userCredential.user.uid), {
     role: _role,
   });
 }
 
+// This function signs the user in with the email and password (string)
+// and then redirects then with the redirectUrl (string)(FilePath)
 export function signIn(email, password, redirectUrl) {
   //sign in with auto redirect
   signInWithEmailAndPassword(auth, email, password)
@@ -60,6 +64,7 @@ export function signIn(email, password, redirectUrl) {
     });
 }
 
+// Signs the user out :)
 export function signOutFn(redirectUrl) {
   if (auth == null) {
     return;
@@ -74,6 +79,7 @@ export function signOutFn(redirectUrl) {
     });
 }
 
+// Checks whether the user is logged in
 export function userLoggedInQ() {
   const user = auth.currentUser;
   if (user) {
