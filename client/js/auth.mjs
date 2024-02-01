@@ -43,7 +43,7 @@ export function createUser(email, password, role) {
     });
 }
 
-//sets the role for the user within the database
+// Sets the role for the user within the database
 async function setDbRole(_role, userCredential) {
   await setDoc(doc(db, "users", userCredential.user.uid), {
     role: _role,
