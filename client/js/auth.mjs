@@ -31,12 +31,13 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-//Takes in email, password and role as a string then creates the user with that information
-export function createUser(email, password, role) {
-  createUserWithEmailAndPassword(auth, email, password)
+//Takes in email, password and role as a string then creates the user with that information. Takes in url to login page/anywhere else.
+export function createUser(email, password, role, redirUrl) {
+  createUserWithEmailAndPassword(auth, email, password, redirUrl)
     .then((userCredential) => {
       setDbRole(role, userCredential);
       alert(`${userCredential.user.email} Has been created.`);
+      window.location.href = redirUrl;
     })
     .catch((error) => {
       alert(`ERROR CODE: ${error.code} ERROR MESSAGE: ${error.message}`);
