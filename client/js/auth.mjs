@@ -1,12 +1,12 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"; //https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js'; //https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js';
 import {
   getFirestore,
   collection,
@@ -14,7 +14,7 @@ import {
   setDoc,
   getDocs,
   doc,
-} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+} from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js';
 // CDN imports above here for firebase (may change to normal imports)
 
 const firebaseConfig = {

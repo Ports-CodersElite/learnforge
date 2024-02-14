@@ -1,4 +1,4 @@
-import * as auth from "./auth.mjs";
+import * as auth from './auth.mjs';
 
 window.addEventListener("load", eventListeners)
 
@@ -22,6 +22,10 @@ function eventListeners() {
 
 // Send user details to auth.mjs for the user to be created/sign up. Runs when signupBtn is clicked.
 function Signup() {
+    if(selectedRole === null){
+        alert("Please Select a role");
+        return;
+    }
     const email = String(emailInput.value);
     const pw = String(passwordInput.value);
     auth.createUser(email, pw, selectedRole, "../index.html");
