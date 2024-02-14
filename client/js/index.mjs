@@ -1,4 +1,4 @@
-import * as auth from "./auth.mjs";
+import * as auth from './auth.mjs';
 
 // Runs the eventListeners() function when window loads.
 window.addEventListener("load", eventListeners);
