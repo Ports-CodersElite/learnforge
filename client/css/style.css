@@ -1,6 +1,7 @@
-#loginPanel {
+.loginRegPanel {
     display: flex;
     flex-direction: column;
     margin: auto;
     width: 25%;
+    transform: translateY(50%);
 }
