@@ -1,0 +1,83 @@
+.my-bg-grad {
+    background: linear-gradient(rgb(235, 235, 235),rgb(235, 235, 235),rgb(187, 201, 223));
+    background-attachment: fixed;
+  }
+
+html { height: 100% }
+body { 
+  min-height: 100vh;
+ }
+
+.center{
+  margin: auto;
+  position: absolute;
+  height: 50vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 25%;
+}
+
+.dashboard{
+  z-index: 1;
+  margin: auto;
+  margin-right: 5%;
+  position: absolute;
+  height: 87vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 85%;
+}
+
+
+
+.nav-toggle-btn{
+  position: absolute;
+  z-index: 3;
+}
+
+/*.nav_button:hover{
+  color: rgb(5, 5, 18)!important;
+  text-decoration: underline;
+}
+
+*{
+  color: black;
+
+
+}*/
+
+ .nav-bar{
+  height: 95vh;
+  width: 25%;
+  margin-left: -35%;
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  transition: all 0.3s ease;
+
+
+ }
+
+.nav-button-list{
+  padding: 1em;
+  margin-top: 3em;
+  overflow:hidden
+}
+
+.nav-button{
+  display:block;
+  color: white;
+  padding: 1em;
+  margin-left: 1em;
+ list-style-type: none;
+}
+
+.toggled .nav-bar{
+  margin-left: -5%;
+  transition: all 0.3s ease;
+}

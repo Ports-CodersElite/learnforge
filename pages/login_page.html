@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+<title>Login</title>
+
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="bootstrap-5.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body class ="my-bg-grad">
+
+  <div class = "p-3 d-flex justify-content-between">
+
+    <div class="p-3 flex-column flex-fill">
+      <a class="btn btn-primary nav-toggle-btn" type="button">=</a>
+      <ul class="p-2 dropdown-menu bg-primary nav_dropdown">
+        <li><button  class="text-white dropdown-item nav_button ">student</button></li>
+        <li><button  class="text-white dropdown-item nav_button ">teacher</button></li>
+      </ul>
+    </div>
+
+    <div class=" p-3 flex-column bg-light rounded center">
+
+      <div class = "">
+
+        
+  
+        <div class="dropdown-center p-2">
+
+          <div class="row">
+            <div class="col">
+              <h2 class = "">
+                Login
+              </h2>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary dropdown=toggle" type="button" data-bs-toggle="dropdown">
+                Select Role
+            </button>
+            <ul class="dropdown-menu">
+                <li><button id="studentDropdown" class="dropdown-item">student</button></li>
+                <li><button id="teacherDropdown" class="dropdown-item">teacher</button></li>
+            </ul>
+            </div>
+          </div>
+
+      </div>
+  
+      </div>
+
+      <form>
+        <div class="row p-3">
+          <div>
+            <div class="p-2 col">
+              <input class="form-control" type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="p-2 col">
+              <input class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class = "p-4">
+              <input class="btn btn-primary form-control" type="submit" value="Login">
+            </div>
+          </div>
+          
+    
+        </div>
+
+      </form>
+
+      <div>
+        <a class = "p-2 float-end">Forgot password?</a>
+      </div>
+
+    <div class="col p-3">
+
+      <!--
+      <a href="#" class = "btn btn-primary float-end flex-fill">=</a>
+      -->
+
+    </div>
+  
+</div>
+ 
+
+
+</body>
+
