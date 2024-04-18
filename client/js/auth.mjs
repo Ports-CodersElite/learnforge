@@ -29,7 +29,9 @@ const firebaseConfig = {
 // Initialise Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+const user = auth.currentUser;
 export const db = getFirestore(app);
+
 
 //Takes in email, password and role as a string then creates the user with that information. Takes in url to login page/anywhere else.
 export function createUser(email, password, role, redirUrl) {
@@ -82,10 +84,11 @@ export function signOutFn(redirectUrl) {
 
 // Checks whether the user is logged in
 export function userLoggedInQ() {
-  const user = auth.currentUser;
   if (user) {
     return true;
   } else {
     return false;
   }
 }
+
+
