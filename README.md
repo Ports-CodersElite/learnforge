@@ -15,7 +15,6 @@
 - `git pull origin main` (**DO THIS BEFORE MERGING!!!**)
 
 ## How to push (Make sure you are in your own branch)
-- "  "
 - " `git add .` "(This makes sure all new files gets uploaded)
 - " `git commit -m "commit message here about code stuff"`"
 - " `git push` " This uploades changes (only commit + push to you own branches)
