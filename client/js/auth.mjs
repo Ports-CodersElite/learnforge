@@ -28,9 +28,8 @@ const firebaseConfig = {
 
 // Initialise Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-const user = auth.currentUser;
-export const db = getFirestore(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 //Takes in email, password and role as a string then creates the user with that information. Takes in url to login page/anywhere else.
@@ -56,6 +55,10 @@ async function setDbRole(_role, userCredential) {
 // This function signs the user in with the email and password (string)
 // and then redirects then with the redirectUrl (string)(FilePath)
 export function signIn(email, password, redirectUrl) {
+  if (auth.currentUser) {
+    signOutFn('../index.html');
+  } 
+
   //sign in with auto redirect
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -91,4 +94,13 @@ export function userLoggedInQ() {
   }
 }
 
+// Session persistence managed using this
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log('Session persistence: (Logged In) ' + user.email);
+    sessionStorage.setItem('email', user.email);
+  } else {
+    console.log('Session persistence: (Logged Out)');
+  }
+}) 
 
