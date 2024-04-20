@@ -82,7 +82,6 @@ class QuizManager extends HTMLElement {
     manager() {
         if (this.quiz.length > this.questionIndex) {
             this.questionCreator();
-            this.questionIndex++;
             return;
         }
         this.quizFeedback();
@@ -106,6 +105,7 @@ class QuizManager extends HTMLElement {
             this.score += 1;
             this.scoreHTML.textContent = "Score: " + this.score + " / " + this.quiz.length;
             this.question.remove();
+            this.questionIndex++;
             this.manager();
             return;
         }
@@ -114,6 +114,7 @@ class QuizManager extends HTMLElement {
             this.incorrectQuestions.push(this.quiz[this.questionIndex]); 
         }
 
+        this.questionIndex++;
         this.question.remove();
         this.manager();
     }
@@ -135,7 +136,7 @@ class QuizManager extends HTMLElement {
 
         this.shadow.append(this.feedbackTitle, this.feedbackScore, this.feedbackPercent, this.feedbackIncorrectQs);
 
-
+        console.log( this.incorrectQuestions );
         for(let i = 0; i < this.incorrectQuestions.length; i++){
             const card = document.createElement('div');
             card.classList.add(['card'], ['text-white'], ['bg-secondary'], ['mb-3'], ['cardStyle']);
