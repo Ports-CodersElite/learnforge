@@ -2,6 +2,7 @@ class QuizQuestion extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open'});
+        this.addStyle();
         this.question;
         this.options = [];
         this.qustionAnswer;
@@ -11,6 +12,7 @@ class QuizQuestion extends HTMLElement {
         this.submit = this.submit.bind(this);
         this.setAnswer = this.setAnswer.bind(this);
         this.create = this.create.bind(this);
+        this.addStyle = this.addStyle.bind(this);
     }
 
     connectedCallback() {
@@ -25,7 +27,6 @@ class QuizQuestion extends HTMLElement {
                 name: "incorrect",
             },
         });
-        this.addStyle();
     }
 
     addStyle() {
