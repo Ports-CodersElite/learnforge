@@ -7,106 +7,59 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/dashboard.css">
+
     <script type="module" src="./js/dashboard.mjs"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-        /* Custom styles for the dashboard */
-        .container {
-            padding-top: 20px;
-        }
-
-        .section-title {
-            margin-bottom: 20px;
-            color: #007bff;
-            /* New color */
-            text-decoration: underline;
-            /* Underline */
-        }
-
-        .card {
-            margin-bottom: 20px;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .btn-primary:hover {
-            background-color: #0069d9;
-            border-color: #0062cc;
-        }
-
-        .btn-primary:focus,
-        .btn-primary.focus {
-            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-        }
-
-        .btn-primary.disabled,
-        .btn-primary:disabled {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .btn-primary:not(:disabled):not(.disabled):active,
-        .btn-primary:not(:disabled):not(.disabled).active,
-        .show>.btn-primary.dropdown-toggle {
-            background-color: #0062cc;
-            border-color: #005cbf;
-        }
-
-        .btn-primary:not(:disabled):not(.disabled):active:focus,
-        .btn-primary:not(:disabled):not(.disabled).active:focus,
-        .show>.btn-primary.dropdown-toggle:focus {
-            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-        }
-
-        /* Custom styles for the change theme button */
-        .change-theme-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            background-color: #808080;
-            color: #fff;
-        }
-
-        .dark-theme {
-            background-color: #fff;
-        }
-
-        .dark-theme .fs-5 {
-            color: #333;
-            /* Dark grey color */
-        }
-
-        .dark-theme .fs-6 {
-            color: #333;
-            /* Dark grey color */
-        }
-    </style>
+    
 </head>
 
-<body data-bs-theme="dark">
-    <div class="container">
+<body class ="p-3 bg-grad" data-bs-theme="light">
+
+    <a id = "nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
+
+    <div id = "nav" class = "nav-bar bg-primary">
+      <ul class="nav-button-list">
+          <li class="btn btn-primary nav-button" type="button">Profile</li>
+          <li class="btn btn-primary nav-button" type="button">Dashboard</li>
+          <li class="btn btn-primary nav-button" type="button">Activity</li>
+          <li class="btn btn-primary nav-button" type="button">Quizzes</li>
+          <li class="btn btn-primary nav-button" type="button">Classes</li>
+      </ul>
+    </div>
+
+
+    <div class="p-5 main-container">
+
+        <h1>Dashboard</h1>
+        <hr>
+
+        <div class="main-container-list">
+
+            <div class="list-item flex-column">
+                <span class="main-text">Name of item</span>
+                <span class="sub-text">Info about this stuff</span>
+            </div>
+
+            <div class="list-item flex-column">
+                <span class="main-text">Name of item</span>
+                <span class="sub-text">Info about this stuff</span>
+            </div>
+
+            <div class="list-item flex-column">
+                <span class="main-text">Name of item</span>
+                <span class="sub-text">Info about this stuff</span>
+            </div>
+
+            <div class="list-item flex-column">
+                <span class="main-text">Name of item</span>
+                <span class="sub-text">Info about this stuff</span>
+            </div>
+
+
+        </div>
+
+        <!--
         <h1 class="fs-5" style="text-decoration: underline; font-size: larger;">Welcome to your Dashboard!</h1>
         <h2 class="fs-6">The University of Portsmouth</h2>
 
@@ -115,17 +68,21 @@
                 <div class="card">
                     <div class="card-body">
                         <h2 class="section-title">Profile Data</h2>
-                        <div class="profile-info">
-                            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-                            <div>
-                                <p><strong>First Name:</strong> John</p>
-                                <p><strong>Last Name:</strong> Doe</p>
-                                <p><strong>ID:</strong> 123456</p>
-                                <p id="emailP"><strong>Email:</strong>email@email.com</p>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-2" onclick="window.location.href = 'profile.html';">Go to
-                            Profile</button>
+
+                        <div class ="">
+                    profile-picture.jpg
+                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+                    <span class ="main-text">John Doe</span>
+                    <span class ="sub-text">(id: 1234567)</span>
+                </div>
+                
+
+                <div>
+                    <button class="btn btn-primary mt-2" onclick="window.location.href = 'profile.html';">
+                        Head to Profile
+                    </button>
+                </div>
+                        
                     </div>
                 </div>
             </div>
@@ -193,10 +150,14 @@
                 </div>
             </div>
         </div>
+
+    
     </div>
 
     <button class="btn btn-primary signOut">Sign Out</button>
     <button class="btn btn-primary change-theme-button" onclick="changeTheme()">Toggle Theme</button>
+
+    -->
 
     <script>
         function changeTheme() {
@@ -224,6 +185,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="./js/navbar.js" type="module"></script>
 </body>
 
 </html>

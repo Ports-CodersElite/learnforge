@@ -1,3 +1,21 @@
+/*general CSS for use on multiple pages*/
+
+html { height: 100% }
+body { 
+  min-height: 100vh;
+ }
+
+ .center{
+  margin: auto;
+  position: absolute;
+  height: 50vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 25%;
+}
+
 .loginRegPanel {
     display: flex;
     flex-direction: column;
@@ -16,4 +34,121 @@
     display: block;
     margin: auto;
     text-align: center;
+}
+
+/*background gradient*/
+.bg-grad {
+    background: linear-gradient(rgb(235, 235, 235),rgb(235, 235, 235),rgb(195, 206, 223));
+    background-attachment: fixed;
+  }
+
+/*the largest grey container which shows up on most pages*/
+.main-container{
+    background-color: rgb(244, 244, 244);
+    border-radius: 1em;
+    z-index: 1;
+    margin: auto;
+    margin-right: 5%;
+    position: absolute;
+    height: 87vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 85vw;
+  }
+
+  
+.main-text{
+  font-weight: bold;
+  font-size: larger;
+  color: black;
+  padding-bottom: 1em;
+}
+
+.sub-text{
+  margin-left: 1em;
+  font-style: normal;
+  font-size: large;
+  color: rgba(0, 0, 0, 0.553);
+}
+
+
+.main-container-list{
+  width: 79vw;
+  height: 65vh;
+
+  overflow-y: scroll;
+}
+
+.list-item{
+  background: #e0e0e0;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 2em;
+  font-size: large;
+
+  flex-grow: 1;
+  height: 20vh;
+
+  display: flex;
+  flex-direction: column;
+
+  text-decoration: none;
+  transition: background 0.2s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+}
+
+.list-item:hover {
+  background: #d8d8d8;
+}
+
+.nav-toggle-btn{
+  position: absolute;
+  z-index: 3;
+}
+
+/*.nav_button:hover{
+  color: rgb(5, 5, 18)!important;
+  text-decoration: underline;
+}
+
+*{
+  color: black;
+
+
+}*/
+
+ #nav{
+  height: 95vh;
+  width: 25%;
+  margin-left: -30%;
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  transition: margin-left 0.3s ease;
+
+
+ }
+
+#nav.nav-transition{
+  margin-left: -3%;
+}
+
+.nav-button-list{
+  padding: 1em;
+  margin-top: 3em;
+  overflow:hidden
+}
+
+#nav-btn{
+  display:block;
+  color: white;
+  padding: 1em;
+  margin-left: 1em;
+ list-style-type: none;
 }
