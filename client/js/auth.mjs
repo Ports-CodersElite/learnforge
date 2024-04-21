@@ -97,10 +97,15 @@ export function userLoggedInQ() {
 // Session persistence managed using this
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log('Session persistence: (Logged In) ' + user.email);
+    console.log('Session persistence: (Logged In)');
+    console.log('Email: ' + user.email);
+    console.log('UID: ' + user.uid);
     sessionStorage.setItem('email', user.email);
+    sessionStorage.setItem('uid', user.uid);
   } else {
     console.log('Session persistence: (Logged Out)');
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('uid');
   }
 }) 
 

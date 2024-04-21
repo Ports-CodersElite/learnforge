@@ -1,6 +1,8 @@
 class QuizQuestion extends HTMLElement {
     constructor() {
         super();
+        this.shadow = this.attachShadow({ mode: 'open'});
+        this.addStyle();
         this.question;
         this.options = [];
         this.qustionAnswer;
@@ -9,15 +11,26 @@ class QuizQuestion extends HTMLElement {
         this.setQuestion = this.setQuestion.bind(this);
         this.submit = this.submit.bind(this);
         this.setAnswer = this.setAnswer.bind(this);
+        this.create = this.create.bind(this);
+        this.addStyle = this.addStyle.bind(this);
     }
 
     connectedCallback() {
-        this.shadow = this.attachShadow({ mode: 'open'});
-        this.addStyle();
+        this.correctEvent = new CustomEvent("response", {
+            detail: {
+                name: "correct",
+            },
+        });
+
+        this.incorrectEvent = new CustomEvent("response", {
+            detail: {
+                name: "incorrect",
+            },
+        });
     }
 
     addStyle() {
-        this.shadow.innerHTML = `
+        this.shadow.innerHTML += `
             <head>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
                 integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -90,6 +103,7 @@ class QuizQuestion extends HTMLElement {
         console.log("Ans: " + this.qustionAnswer);
         
         if(e.target.textContent === this.qustionAnswer) {
+            this.dispatchEvent(this.correctEvent);
             // Makes sure incorrect and correct arent displaying at same time
             if(!this.incorrectDiv.classList.contains('hide')){
                 this.incorrectDiv.classList.add('hide');
@@ -97,12 +111,19 @@ class QuizQuestion extends HTMLElement {
             this.correctDiv.classList.remove('hide');
             return;
         }
-        
+        this.dispatchEvent(this.incorrectEvent);
         // Makes sure incorrect and correct arent displaying at same time
         if(!this.correctDiv.classList.contains('hide')){
             this.correctDiv.classList.add('hide');
         }
         this.incorrectDiv.classList.remove('hide');
+    }
+
+    create(_question, _options,  _answer) {
+        this.setAnswer(_answer);
+        this.setOptions(_options);
+        this.setQuestion(_question);
+        this.createInPage();
     }
 }
 customElements.define('quiz-question', QuizQuestion);
