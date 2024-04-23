@@ -54,11 +54,18 @@ body {
     right: 0;
 }
 
+<<<<<<< HEAD
+.wrapper{
+    display: inline-block;
+    margin:auto;
+}
+=======
 .webComponenet {
     display: block;
     margin: auto;
     text-align: center;
 }
+<<<<<<< HEAD
 
 /*background gradient*/
 .bg-grad {
@@ -209,3 +216,6 @@ nav.nav-transition{
   position: absolute;
   z-index: 3;
 }
+=======
+>>>>>>> main
+>>>>>>> 16a0343e02c481f6b9705ad0db65515d4cd53adb
