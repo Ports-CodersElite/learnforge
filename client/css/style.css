@@ -45,14 +45,18 @@ body {
     flex-direction: column;
     width: 25%;
     margin: auto;
+    padding: 3em;
+    border-radius: 1em;
+    background-color: rgb(244, 244, 244);
 
     position: absolute;
-    height: 50vh;
+    height: 40vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 }
+
 
 <<<<<<< HEAD
 .wrapper{
