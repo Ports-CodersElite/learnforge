@@ -46,6 +46,14 @@ class QuizQuestion extends HTMLElement {
                 .hide{
                     display: none;
                 }
+
+                .choice-btn{
+                    width: 30vw;
+                    height: auto;
+                    padding: 1em;
+                }
+
+                
             </style>
         `
     }
@@ -85,14 +93,14 @@ class QuizQuestion extends HTMLElement {
     createInPage() {
         this.questionHTML = document.createElement('h1');
         this.questionHTML.textContent = this.question;
-        this.questionHTML.classList.add('fs-1');
+        this.questionHTML.classList.add(['p-4']);
 
         this.shadow.append(this.questionHTML);
 
         for(let i = 0; i < this.options.length; i++){
             const btn = document.createElement('button');
             btn.textContent = this.options[i];
-            btn.classList.add(['btn'], ['btn-primary'], ['m-2']);
+            btn.classList.add(['btn'], ['btn-primary'], ['choice-btn'], ['m-2']);
             btn.addEventListener('click', this.submit);
             this.shadow.append(btn);
         }

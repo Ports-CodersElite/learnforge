@@ -42,6 +42,7 @@ class QuizManager extends HTMLElement {
         this.addStyle();
         this.scoreHTML = document.createElement('h1');
         this.scoreHTML.textContent = "Score: " + this.score + " / " + this.quiz.length;
+        this.scoreHTML.classList.add('score-text');
         this.shadow.append(this.scoreHTML);
         this.manager();
     }
@@ -60,17 +61,70 @@ class QuizManager extends HTMLElement {
         </body>
 
         <style>
+
+            h1{
+                display: block;
+                margin: auto;
+                max-width: vw;
+            }
+
             #progressBarContainer{
                 display: block;
                 margin: auto;
-                width: 50%;
+                width: 20%;
             }
 
             .cardStyle {
                 display: block;
                 margin: auto;
-                max-width: 24rem;
+                max-width: 40vw;
             }
+
+            .feedback-box{
+                background: #e0e0e0;
+                border-radius: 1em;
+                margin: 1em;
+                padding: 2em;
+                font-size: large;
+              
+                flex-grow: 1;
+                height: 20vh;
+              
+                display: flex;
+                flex-direction: column;
+              
+                text-decoration: none;
+                transition: background 0.2s ease;
+                  -webkit-transition: background 0.2s ease;
+                  -moz-transition: background 0.2s ease;
+                  -o-transition: background 0.2s ease;
+                  -ms-transition: background 0.2s ease;
+              }
+
+              h4{
+                margin-left: 1em;
+                font-style: normal;
+                font-size: large;
+                color: rgba(0, 0, 0, 0.553);
+              }
+
+              h1{
+                padding: 1em;
+              }
+
+              h2{
+                text-align: start;
+              }
+
+              .score-text{
+                padding: 2em;
+                margin-left: 1em;
+                font-style: normal;
+                font-size: large;
+                color: rgba(0, 0, 0, 0.553);
+              }
+            
+              }
         </style>
         `
     }
@@ -125,21 +179,21 @@ class QuizManager extends HTMLElement {
         this.feedbackTitle.textContent = 'Feedback';
 
         this.feedbackScore = document.createElement('h3');
-        this.feedbackScore.textContent = `${this.score} / ${this.quiz.length}`;
+        this.feedbackScore.textContent = `You scored: ${this.score} / ${this.quiz.length}`;
 
-        this.feedbackPercent = document.createElement('h3');
-        this.feedbackPercent.textContent = `${this.score / this.quiz.length * 100}%`;
+        this.feedbackPercent = document.createElement('h4');
+        this.feedbackPercent.textContent = `For an overall ${this.score / this.quiz.length * 100}%.`;
 
         this.feedbackIncorrectQs = document.createElement('h2');
         this.feedbackIncorrectQs.classList.add('mt-5')
-        this.feedbackIncorrectQs.textContent = 'Incorrect Questions:';
+        this.feedbackIncorrectQs.textContent = 'Your Incorrect Questions:';
 
         this.shadow.append(this.feedbackTitle, this.feedbackScore, this.feedbackPercent, this.feedbackIncorrectQs);
 
         console.log( this.incorrectQuestions );
         for(let i = 0; i < this.incorrectQuestions.length; i++){
             const card = document.createElement('div');
-            card.classList.add(['card'], ['text-white'], ['bg-secondary'], ['mb-3'], ['cardStyle']);
+            card.classList.add(['feedback-box'], ['mb-3']);
 
             const cardHeader = document.createElement('div');
             cardHeader.classList.add(['card-header']);
@@ -154,7 +208,7 @@ class QuizManager extends HTMLElement {
 
             const cardText = document.createElement('p');
             cardText.classList.add(['card-text']);
-            cardText.textContent = "Answer: " + this.incorrectQuestions[i].answer;
+            cardText.textContent = "Correct Answer: " + this.incorrectQuestions[i].answer;
 
             card.append(cardHeader);
             cardHeader.append(cardBody);

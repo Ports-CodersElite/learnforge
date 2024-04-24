@@ -1,3 +1,45 @@
+/*general CSS for use on multiple pages*/
+
+html { height: 100% }
+body { 
+  min-height: 100vh;
+ }
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.3vw;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0505540f; 
+  border-radius: 1em;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0a0f341c; 
+  border-radius: 1em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 7, 52, 0.37); 
+  border-radius: 1em;
+}
+
+ .center{
+  margin: auto;
+  position: absolute;
+  height: 50vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 25%;
+}
+
 .loginRegPanel {
     display: flex;
     flex-direction: column;
@@ -12,15 +54,170 @@
     right: 0;
 }
 
-<<<<<<< HEAD
+
 .wrapper{
     display: inline-block;
     margin:auto;
 }
-=======
+
 .webComponenet {
     display: block;
     margin: auto;
     text-align: center;
 }
->>>>>>> main
+
+.show-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*background gradient*/
+.bg-grad {
+    background: linear-gradient(rgb(235, 235, 235),rgb(235, 235, 235),rgb(195, 206, 223));
+    background-attachment: fixed;
+  }
+
+/*the largest grey container which shows up on most pages*/
+.main-container{
+    background-color: rgb(244, 244, 244);
+    border-radius: 1em;
+    z-index: 1;
+    margin: auto;
+    margin-right: 5%;
+    position: absolute;
+    height: 87vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 85vw;
+  }
+
+  
+.main-text{
+  font-weight: bold;
+  font-size: larger;
+  color: black;
+  padding-bottom: 1em;
+}
+
+.sub-text{
+  margin-left: 1em;
+  font-style: normal;
+  font-size: large;
+  color: rgba(0, 0, 0, 0.553);
+}
+
+
+.main-container-list{
+  width: 79vw;
+  height: 65vh;
+
+  overflow-y: scroll;
+}
+
+.list-item{
+  background: #e0e0e0;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 2em;
+  font-size: large;
+
+  flex-grow: 1;
+  height: 20vh;
+
+  display: flex;
+  flex-direction: column;
+
+  text-decoration: none;
+  transition: background 0.2s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+}
+
+.list-item:hover {
+  background: #d8d8d8;
+}
+
+
+
+/*.nav_button:hover{
+  color: rgb(5, 5, 18)!important;
+  text-decoration: underline;
+}
+
+*{
+  color: black;
+
+
+}*/
+
+ #nav{
+
+
+  height: 95vh;
+  width: 25%;
+  margin-left: -30%;
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  transition: margin-left 0.3s ease;
+
+
+ }
+
+nav.nav-transition{
+  margin-left: -3%;
+}
+
+.nav-button-list{
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  margin-top: 4em;
+  margin-right: 2em;
+  padding: 1em;
+  overflow-y:scroll;
+  overflow-x: hidden;
+}
+
+.nav-item{
+  /*box-shadow: 0em 0.2em 0.5em rgba(0, 0, 0, 0.195);*/
+  margin-left: 1.5em;
+  margin-top: 1em;
+  padding: 1.5em;
+  font-size: 150% !important;
+  text-align: start !important;
+}
+
+#open-nav-btn{
+  color: white;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+#logout-btn{
+  background: #0c82ff !important;
+  border-color: #007bff00;
+  margin-top: -0.4em;
+  margin-left: 4vw;
+
+  transition: background 0.2s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+}
+
+#logout-btn:hover{
+  background: #3496ff !important;
+}
+
+.nav-toggle-btn{
+  position: absolute;
+  z-index: 3;
+}
