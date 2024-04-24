@@ -5,8 +5,8 @@ window.addEventListener('load', eventListeners);
 let signOutbtn = null;
 
 function eventListeners() {
-    // signOutbtn = document.querySelector('.signOut');
-    // signOutbtn.addEventListener('click', signOut);
+    signOutbtn = document.querySelector('#logout-btn');
+    signOutbtn.addEventListener('click', signOut);
     displayUserData();
 }
 
