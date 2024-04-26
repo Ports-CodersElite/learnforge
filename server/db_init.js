@@ -1,6 +1,4 @@
 const sqlite3 = require('sqlite3').verbose();
-//import sqlite3 from 'sqlite3';
-
 
 sql = `
 CREATE TABLE student_details(
@@ -69,6 +67,8 @@ CREATE TABLE quiz_history(
     FOREIGN KEY(quiz_id) REFERENCES quiz_details(quiz_id)
 );`
 
+
+// Only needs to be called one time to create database
 function init() {
     console.log("INITIALIZING DB");
     const db = new sqlite3.Database("./server/test.db", sqlite3.OPEN_READWRITE, (err) =>{
@@ -76,30 +76,3 @@ function init() {
     });
     db.run(sql);
 }
-
-function add() {
-    const db = new sqlite3.Database("./server/test.db", sqlite3.OPEN_READWRITE, (err) =>{
-        if (err) return console.error(err.message);
-    });
-    let q = `INSERT INTO student_details VALUES ("4ye78tghu", "John", "Jeeb", "Michaels", "m@gmail.com");`
-    db.run(q, [], (err) => {
-        if (err) return console.error(err.message);
-    });
-}
-
-
-function display() {
-    console.log("DISPLAYING STUDENT_DETAILS");
-    const db = new sqlite3.Database("./server/test.db", sqlite3.OPEN_READWRITE, (err) =>{
-        if (err) return console.error(err.message);
-    });
-    let q = `SELECT * FROM student_details`;
-    db.all(q, [], (err, rows) =>{
-        if (err) return console.error(err.message);
-        rows.forEach((row) => {
-            console.log(row);
-        })
-    })
-}
-
-display();
