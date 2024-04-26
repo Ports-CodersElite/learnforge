@@ -1,0 +1,24 @@
+.quiz-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.due-date{
+    font-weight: bold;
+    text-align: end;
+    text-decoration-line: underline;
+}
+
+.completion-text{
+    font-weight: bold;
+    text-align: end;
+    text-decoration-line: underline;
+}
+
+.overdue-text{
+    font-size: larger;
+    font-weight: bold;
+    text-align: end;
+    color: rgb(255, 0, 0)
+}

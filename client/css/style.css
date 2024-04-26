@@ -5,6 +5,12 @@ body {
   min-height: 100vh;
  }
 
+ .show-login{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 0.3vw;
@@ -120,7 +126,7 @@ body {
   font-size: large;
 
   flex-grow: 1;
-  height: 20vh;
+  min-height: 20vh;
 
   display: flex;
   flex-direction: column;
