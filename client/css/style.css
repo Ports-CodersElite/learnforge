@@ -45,15 +45,17 @@ body {
     flex-direction: column;
     width: 25%;
     margin: auto;
+    padding: 3em;
+    border-radius: 1em;
+    background-color: rgb(244, 244, 244);
 
     position: absolute;
-    height: 50vh;
+    height: 40vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 }
-
 
 .wrapper{
     display: inline-block;
@@ -65,13 +67,6 @@ body {
     margin: auto;
     text-align: center;
 }
-
-.show-login{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 /*background gradient*/
 .bg-grad {
     background: linear-gradient(rgb(235, 235, 235),rgb(235, 235, 235),rgb(195, 206, 223));
@@ -155,9 +150,27 @@ body {
 
 }*/
 
- #nav{
+@keyframes slideout {
+  from {
+    margin-left: -3%;
+  }
 
+  to {
+    margin-left: -30%;
+  }
+}
 
+@keyframes slidein{
+  from {
+    margin-left: -30%;
+  } 
+
+  to {
+    margin-left: -3%;
+  }
+}
+
+.nav-init {
   height: 95vh;
   width: 25%;
   margin-left: -30%;
@@ -165,13 +178,28 @@ body {
   z-index: 2;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-  transition: margin-left 0.3s ease;
+}
 
+.nav-hide {
+  animation: slideout 1s;
+  height: 95vh;
+  width: 25%;
+  margin-left: -30%;
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
 
- }
-
-nav.nav-transition{
-  margin-left: -3%;
+.nav-show{
+  animation: slidein 1s;
+  height: 95vh;
+  width: 25%;
+  margin-left: -3%;   
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 .nav-button-list{
@@ -221,3 +249,6 @@ nav.nav-transition{
   position: absolute;
   z-index: 3;
 }
+/* =======
+>>>>>>> main
+>>>>>>> 16a0343e02c481f6b9705ad0db65515d4cd53adb */

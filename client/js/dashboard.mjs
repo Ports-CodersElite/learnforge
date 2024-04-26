@@ -5,7 +5,7 @@ window.addEventListener('load', eventListeners);
 let signOutbtn = null;
 
 function eventListeners() {
-    signOutbtn = document.querySelector('.signOut');
+    signOutbtn = document.querySelector('#logout-btn');
     signOutbtn.addEventListener('click', signOut);
     displayUserData();
 }
@@ -17,6 +17,6 @@ function signOut() {
 
 // Updates P tags on dashboard.html with user data from auth.mjs
 function displayUserData() {
-    const emailP = document.querySelector('#emailP');
-    emailP.textContent = sessionStorage.getItem('email');
+    const loggedInAs = document.querySelector('#loggedInAs');
+    loggedInAs.textContent = `logged in as ${sessionStorage.getItem('email')}`;
 }
