@@ -6,12 +6,12 @@ let mname = document.querySelector("#mname");
 let lname = document.querySelector("#lname");
 let email = document.querySelector("#email");
 let submit = document.querySelector("#submit");
-submit.addEventListener("click", submitStudent);
+submit.addEventListener("click", submitUser);
 
 
-function submitStudent() {
-    let payload = [id.value, fname.value, mname.value, lname.value, email.value];
-    fetch('/test', {
+function submitUser() {
+    let payload = [id.value, fname.value, mname.value, lname.value, email.value, role.value];
+    fetch('/new-user', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -19,5 +19,5 @@ function submitStudent() {
         body: JSON.stringify(payload),
     });
 
-    console.log(JSON.stringify(payload));
+    console.log("SENDING " + JSON.stringify(payload));
 }

@@ -32,12 +32,22 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-//Takes in email, password and role as a string then creates the user with that information. Takes in url to login page/anywhere else.
-export function createUser(email, password, role, redirUrl) {
+//Takes in fname, mname, lname, email, password and role as a string then creates the user with that information. Takes in url to login page/anywhere else.
+export function createUser(fname, mname, lname, email, password, role, redirUrl) {
   createUserWithEmailAndPassword(auth, email, password, redirUrl)
     .then((userCredential) => {
       setDbRole(role, userCredential);
       alert(`${userCredential.user.email} Has been created.`);
+
+      let payload = [userCredential.user.uid, fname, mname, lname, email, role]
+      console.log(userCredential.user.uid);
+      fetch('/new-user', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    });
       window.location.href = redirUrl;
     })
     .catch((error) => {

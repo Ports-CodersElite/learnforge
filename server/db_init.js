@@ -74,5 +74,9 @@ function init() {
     const db = new sqlite3.Database("./server/test.db", sqlite3.OPEN_READWRITE, (err) =>{
         if (err) return console.error(err.message);
     });
-    db.run(sql);
+    db.exec(sql, (err) => {
+        if (err) return console.log(err.message);
+    });
 }
+
+init();
