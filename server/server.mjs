@@ -58,6 +58,20 @@ server.post('/get-profile', (req, res) => {
     }
 });
 
+server.post("/update-user", (req, res) => {
+    log("///\nUPDATE USER REQUEST", 1);
+    console.log(req.body);
+    if(req != null) {
+        log("SENDING TO DB", 1);
+        lf.updateUserProfile(req.body[0], req.body[1], req.body[2], () => {});
+        res.send("Successfully updated");
+    }
+    else {
+        log("FAILED\n///\n", 1);
+        res.send("Failed to update user info");
+    }
+});
+
 function log (mssg, logLevel) {
     if ((logLevel == 1 && logging.level1) || (logLevel == 2 && logging.level2)) {
         console.log(mssg);
