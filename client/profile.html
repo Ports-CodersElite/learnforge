@@ -92,14 +92,19 @@
 </head>
 <body data-bs-theme="dark">
     <section class="profilePanel">
-        <div class="profilePicture">
+        <!-- <div class="profilePicture"> add back later if we have the time
             <div class="editProfilePicture" onclick="document.getElementById('fileInput').click()"></div>
-        </div>
+        </div> -->
         <h1 class="fs-1">Profile</h1>
         <div class="profileDetails">
             <p class="fs-5 mb-0">First Name:</p>
             <label for="firstNameInput" id="firstNameLabel">John</label>
             <input type="text" class="form-control d-none" id="firstNameInput">
+            
+            <p class="fs-5 mb-0">Middle Name:</p>
+            <label for="middleNameInput" id="middleNameLabel"></label>
+            <input type="text" class="form-control d-none" id="middleNameInput">
+
             <p class="fs-5 mb-0">Last Name:</p>
             <label for="lastNameInput" id="lastNameLabel">Doe</label>
             <input type="text" class="form-control d-none" id="lastNameInput">
@@ -110,12 +115,13 @@
             <label for="emailInput" id="emailLabel">johndoe@example.com</label>
             <input type="email" class="form-control d-none" id="emailInput">
             <!-- Add more profile details here later, i am not sure what all the attributes will be, I will refine later-->
-            <p class="fs-5 mb-0">Emergency Contact Number:</p>
+            <!-- removing this for now unless we add it into the database later -->
+            <!-- <p class="fs-5 mb-0">Emergency Contact Number:</p>
             <label for="phoneInput" id="phoneLabel">123-456-7890</label>
             <input type="text" class="form-control d-none" id="phoneInput">
             <p class="fs-5 mb-0">Personal Tutor:</p>
             <label for="tutorInput" id="tutorLabel">John Smith</label>
-            <input type="text" class="form-control d-none" id="tutorInput">
+            <input type="text" class="form-control d-none" id="tutorInput"> -->
         </div>
 
         <div>
@@ -127,8 +133,9 @@
         <button class="btn btn-secondary mt-2 d-none" id="cancelBtn" onclick="cancelChanges()">Cancel Changes</button>
         <button class="btn btn-dark mt-2" id="themeBtn" onclick="toggleTheme()">Toggle Theme</button>
     </section>
-    <input type="file" id="fileInput" style="display: none;" onchange="handleImageUpload(event)">
-    <script>
+    <!-- <input type="file" id="fileInput" style="display: none;" onchange="handleImageUpload(event)"> -->
+    <script src="./js/profile.mjs" type="module"></script>
+    <!-- <script>
         function editDetails() {
             document.getElementById("firstNameLabel").classList.add("d-none");
             document.getElementById("firstNameInput").classList.remove("d-none");
@@ -205,6 +212,6 @@
             };
             reader.readAsDataURL(file);
         }
-    </script>
+    </script> -->
 </body>
 </html>
