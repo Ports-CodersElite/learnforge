@@ -15,7 +15,7 @@ export function submitUser(id, fname, mname, lname, email, role) {
 
 export function getProfileData(uidInput, callback) {
     let payload = [uidInput];
-    let res = fetch('/get-profile', {
+    fetch('/get-profile', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,4 +26,19 @@ export function getProfileData(uidInput, callback) {
     .then(res => {
         callback(res);
     })
+}
+
+export function updateUserProfile(uid, column, newValue) {
+    let payload = [uid, column, newValue];
+    fetch('/update-user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    // .then(res => res.json())
+    // .then(res => {
+    //     callback(res);
+    // });
 }
