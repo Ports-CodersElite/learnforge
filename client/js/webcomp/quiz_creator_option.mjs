@@ -1,6 +1,8 @@
 class QuizCreatorOption extends HTMLElement {
     constructor() {
         super();
+        this.optionText = '';
+        this.setOption = this.setOption.bind(this);
     }   
 
     connectedCallback() {
@@ -40,6 +42,13 @@ class QuizCreatorOption extends HTMLElement {
             }
         </style>
         `
+    }
+
+    // So option can be ready easily from other locations
+    // Gets called in the quiz_creator_question.mjs
+    setOption() {
+        this.option = this.optionInput.value;
+        console.log(this.option);
     }
 }
 customElements.define('quiz-creator-option', QuizCreatorOption);
