@@ -47,7 +47,7 @@ class QuizCreatorOption extends HTMLElement {
     // So option can be ready easily from other locations
     // Gets called in the quiz_creator_question.mjs
     setOption() {
-        this.option = this.optionInput.value;
+        this.optionText = this.optionInput.value;
         console.log(this.option);
     }
 }

@@ -2,9 +2,11 @@ class QuizCreator extends HTMLElement {
     constructor() {
         super();
         this.name = '';
+        this.questionsOutput = []; // Stores only required string data NOT HTML Elements
         this.questions = []; // Stores HTML Elements
         this.addQuestion = this.addQuestion.bind(this);
         this.createQuiz = this.createQuiz.bind(this);
+        this.outputQuiz = this.outputQuiz.bind(this);
     }
     
     connectedCallback() {
@@ -58,8 +60,14 @@ class QuizCreator extends HTMLElement {
             // Pushes quesiton object to array in quiz
             this.name = this.quizName.value;
             question.options = options;
-            console.log(question);
+            this.questionsOutput.push(question);
         }
+        this.outputQuiz();
+    }
+
+    outputQuiz() {
+        console.log(`Quiz Name: ${this.name}`);
+        console.log(this.questionsOutput);
     }
 }
 customElements.define('quiz-creator', QuizCreator);
