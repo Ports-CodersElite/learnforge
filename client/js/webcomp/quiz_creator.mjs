@@ -44,7 +44,6 @@ class QuizCreator extends HTMLElement {
     createQuiz() {
         for(let i = 0; i < this.questions.length; i++) {
             this.questions[i].confirmQuestion();
-            console.log(`Question: ${this.questions[i].question} | Answer: ${this.questions[i].answer}`);
 
             // Create question object and add question + question answer
             let question = {
@@ -56,7 +55,6 @@ class QuizCreator extends HTMLElement {
             const options = [];
             // Adds all the options to the question object
             for (let f = 0; f < this.questions[i].options.length; f++) {
-                console.log(`Options: ${this.questions[i].options[f].optionText}`);
                 options.push(this.questions[i].options[f].optionText);
             }
 
@@ -74,8 +72,7 @@ class QuizCreator extends HTMLElement {
             quizName: this.name,
             questions: this.questionsOutput
         }
-
-        console.log(quizObj)
+        console.log(quizObj);
     }
 }
 customElements.define('quiz-creator', QuizCreator);
