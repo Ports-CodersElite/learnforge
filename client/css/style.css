@@ -95,6 +95,20 @@ body {
     width: 85vw;
   }
 
+  .sub-container{
+    background: #e0e0e0;
+    border-radius: 1em;
+    margin: 1em;
+    padding: 2em;
+    font-size: large;
+
+    display: flex;
+    flex-direction: column;
+  
+    flex-grow: 1;
+    min-height: 20vh;
+  }
+
   
 .main-text{
   font-weight: bold;
