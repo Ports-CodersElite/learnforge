@@ -42,6 +42,7 @@ class QuizCreator extends HTMLElement {
     // When clicking create quiz button
     // Formats data for database in new array called this.questionsOutput
     createQuiz() {
+        this.questionsOutput = [];
         for(let i = 0; i < this.questions.length; i++) {
             this.questions[i].confirmQuestion();
 
