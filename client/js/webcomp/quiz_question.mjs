@@ -3,9 +3,9 @@ class QuizQuestion extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open'});
         this.addStyle();
-        this.question;
+        this.question = '';
         this.options = [];
-        this.qustionAnswer;
+        this.questionAnswer = [];
         this.setOptions = this.setOptions.bind(this);
         this.createInPage = this.createInPage.bind(this);
         this.setQuestion = this.setQuestion.bind(this);
@@ -74,7 +74,7 @@ class QuizQuestion extends HTMLElement {
     }
 
     setAnswer(_ans) {
-        this.qustionAnswer = _ans;
+        this.questionAnswer = _ans;
 
         
         // Hidden on creation
@@ -107,24 +107,36 @@ class QuizQuestion extends HTMLElement {
     }
 
     submit(e) {
-        console.log("User Ans: " + e.target.textContent);
-        console.log("Ans: " + this.qustionAnswer);
+        // console.log("User Ans: " + e.target.textContent);
+        // console.log("Ans: " + this.questionAnswer[0]);
         
-        if(e.target.textContent === this.qustionAnswer) {
-            this.dispatchEvent(this.correctEvent);
-            // Makes sure incorrect and correct arent displaying at same time
-            if(!this.incorrectDiv.classList.contains('hide')){
-                this.incorrectDiv.classList.add('hide');
+        for(let i = 0; i < this.questionAnswer.length; i++) {
+            console.log(this.questionAnswer[i]);
+            if(e.target.textContent === this.questionAnswer[i]) {
+                this.dispatchEvent(this.correctEvent);
+                return;
             }
-            this.correctDiv.classList.remove('hide');
-            return;
         }
         this.dispatchEvent(this.incorrectEvent);
+        
+        // if(this.questionAnswer.includes(e.target.textContent)) {
+        //     this.dispatchEvent(this.correctEvent);
+        //     // Makes sure incorrect and correct arent displaying at same time
+        //     if(!this.incorrectDiv.classList.contains('hide')){
+        //         this.incorrectDiv.classList.add('hide');
+        //     }
+        //     this.correctDiv.classList.remove('hide');
+        //     return;
+        // }
+        
+       
+            
+
         // Makes sure incorrect and correct arent displaying at same time
-        if(!this.correctDiv.classList.contains('hide')){
-            this.correctDiv.classList.add('hide');
-        }
-        this.incorrectDiv.classList.remove('hide');
+        // if(!this.correctDiv.classList.contains('hide')){
+        //     this.correctDiv.classList.add('hide');
+        // }
+        // this.incorrectDiv.classList.remove('hide');
     }
 
     create(_question, _options,  _answer) {

@@ -1,10 +1,6 @@
 
 /* Custom styles for the dashboard */
-.show-login{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 
 .section-title {
     margin-bottom: 20px;
