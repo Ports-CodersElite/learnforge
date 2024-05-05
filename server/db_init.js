@@ -20,7 +20,6 @@ CREATE TABLE lecturer_details(
 CREATE TABLE class_details(
     class_id INTEGER PRIMARY KEY,
     lecturer_id TEXT NOT NULL,
-    course TEXT NOT NULL,
     class_name TEXT NOT NULL,
     join_code INTEGER NOT NULL,
     FOREIGN KEY(lecturer_id) REFERENCES lecturer_details(lecturer_id)
