@@ -70,7 +70,7 @@ CREATE TABLE quiz_history(
 // Only needs to be called one time to create database
 function init() {
     console.log("INITIALIZING DB");
-    const db = new sqlite3.Database("./server/learnforge.db", sqlite3.OPEN_READWRITE, (err) =>{
+    const db = new sqlite3.Database("./learnforge.db", sqlite3.OPEN_READWRITE, (err) =>{
         if (err) return console.error(err.message);
     });
     db.exec(sql, (err) => {
