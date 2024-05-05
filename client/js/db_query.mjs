@@ -36,9 +36,17 @@ export function updateUserProfile(uid, column, newValue) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
+    });
+}
+
+export function uploadQuiz(uid, quizTitle, quizData) {
+    let payload = [uid, quizTitle, quizData];
+    console.log(payload);
+    fetch('/upload-quiz', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
     })
-    // .then(res => res.json())
-    // .then(res => {
-    //     callback(res);
-    // });
 }

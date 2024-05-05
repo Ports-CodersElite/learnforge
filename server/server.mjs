@@ -72,10 +72,21 @@ server.post("/update-user", (req, res) => {
     }
 });
 
+server.post("/upload-quiz", (req, res) => {
+    if(req != null) {
+        lf.createQuiz(req.body[0], req.body[1], req.body[2]);
+    }
+    else {
+        log(req.body, 1);
+        log("Failed to create quiz: no data", 1);
+    }
+})
+
 function log (mssg, logLevel) {
     if ((logLevel == 1 && logging.level1) || (logLevel == 2 && logging.level2)) {
         console.log(mssg);
     }
 }
+
 
 server.listen(8080);

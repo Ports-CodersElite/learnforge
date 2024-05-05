@@ -35,9 +35,8 @@ CREATE TABLE class_student(
 );
 
 CREATE TABLE quiz_details(
-    quiz_id INTEGER NOT NULL,
+    quiz_id INTEGER PRIMARY KEY,
     creator_id TEXT NOT NULL, 
-    course TEXT NOT NULL,
     quiz_title TEXT NOT NULL,
     quiz_data TEXT NOT NULL,
     FOREIGN KEY(creator_id) REFERENCES lecturer_details(lecturer_id)
