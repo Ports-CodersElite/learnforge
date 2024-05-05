@@ -3,7 +3,7 @@ class QuizCreatorQuestion extends HTMLElement {
         super();
         this.question = '';
         this.options = [];
-        this.answer = '';
+        this.answer = [];
 
         this.answerAlreadyFound = false;
 
@@ -65,11 +65,6 @@ class QuizCreatorQuestion extends HTMLElement {
 
         for(let option of this.options) {
             option.setOption();
-            if (this.answerAlreadyFound === true) {
-                alert('You can only select one correct answer. (First answer to be checked has been set to correct.');
-                return;
-            }
-
             if (option.isCorrectCheckbox.checked === true) {
                 this.answerAlreadyFound = true;
                 this.answer = option.optionText;
