@@ -109,4 +109,52 @@ export function updateUserProfile(uid, column, newValue,  callback) {
     });
 }
 
-displayTable('student_details');
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+export function createQuiz(uid, quizTitle, quizData) {
+    openDb((res) => {
+        if(res) {
+            let timeout = 5;
+            let validId = false
+            let tmpId;
+            var repeat = function(triesLeft) {
+                if(triesLeft > 0 && validId == false) {
+                    tmpId = getRandomInt(9223372036854775807); // max sql integer value
+                    let checkSql = `SELECT * FROM quiz_details WHERE quiz_id = ` + tmpId + `;`;
+                    db.get(checkSql, [], (err, row) => {
+                        if(err) {
+                            return console.log(err.message);
+                        }
+                        if(row == undefined) {
+                            validId = true;
+                            let insertSql = `INSERT INTO quiz_details VALUES (?, ?, ?, ?)`
+                            db.get(insertSql, [tmpId, uid, quizTitle, quizData], (err, row) => {
+                                if(err) {
+                                    return console.log(err.message);
+                                }
+                            })
+                        }
+                        else {
+                            repeat(triesLeft - 1)
+                        }
+                    })
+                }
+                else {
+                    if(validId) {
+                        console.log("Got unique ID: ", tmpId);
+                    }
+                    else {
+                        console.log("Couldn't get unique ID");
+                    }
+                }
+            }
+        }
+        repeat(5);
+        });
+}
+
+//createStudent(1, "a", "b", "c", "email");
+createQuiz("b", "c", "d");
+//displayTable('quiz_details');

@@ -49,7 +49,6 @@ function onLoad() {
     getUserDetails();
 }
 
-
 function editDetails() {
     document.getElementById("firstNameLabel").classList.add("d-none");
     document.getElementById("firstNameInput").classList.remove("d-none");
