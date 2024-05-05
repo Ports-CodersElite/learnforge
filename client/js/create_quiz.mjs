@@ -1,68 +1,21 @@
+import * as db from './db_query.mjs';
+
 window.addEventListener('load', init);
 
-const buttons = {
-    addQuestion: null,
-    addChoice: null,
-}
-
-const containers = {
-    questionChoice: null,
-}
-
-let quiz = {
-    name: '',
-    quiz: [{
-        question: '',
-        options: [],
-        answer: ''
-    }]
-}
+let quiz_creator;
 
 function init() {
-    console.log('create_quiz.mjs loaded');
-
-    buttons.addQuestion = document.querySelector('#newQuestionBtn');
-    buttons.addQuestion.addEventListener('click', addQuestion);
-
-    buttons.addChoice = document.querySelector('#newChoiceBtn');
-    buttons.addChoice.addEventListener('click', addChoice);
-
-    containers.questionChoice = document.querySelector('#question-choices-container');
+    quiz_creator = document.querySelector('#quizCreator');
+    quiz_creator.addEventListener('quiz-created', uploadQuizToDb);
 }
 
-function addQuestion() {
-    console.log('add question');
+function uploadQuizToDb(e) {
+    const uid = sessionStorage.getItem('uid')
+
+    if (uid === null) {
+        console.log('error user not loggd in');
+        return;
+    }
+    db.uploadQuiz(uid, quiz_creator.output.quizName, JSON.stringify(quiz_creator.output.questions));
 }
-
-function addChoice() {
-    console.log('add choice');
-    const div = document.createElement('div');
-    div.classList.add('p-4');
-
-    const choiceText = document.createElement('span');
-    choiceText.textContent = 'Choice X';
-
-    const textArea = document.createElement('textarea');
-    textArea.classList.add(['m-3'],['quiz-question-input'],['form-control']);
-    textArea.setAttribute('type', 'text');
-    textArea.placeholder = 'Your answer';
-
-    const checkbox = document.createElement('input');
-    checkbox.classList.add('form-check-input');
-    checkbox.setAttribute('type', 'checkbox');
-
-    const checkboxText = document.createElement('span');
-    checkboxText.classList.add('answer-checkbox-text');
-    checkboxText.textContent = 'Choice X is correct?';
-
-    div.appendChild(choiceText);
-    div.appendChild(textArea);
-    div.appendChild(checkbox);
-    div.appendChild(checkboxText)
-    containers.questionChoice.appendChild(div);
-}
-
-
-
-
 
