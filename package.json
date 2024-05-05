@@ -5,7 +5,8 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server/server.mjs"
+    "start": "node ./server/server.mjs",
+    "db": "node ./server/db_init.js"
   },
   "author": "",
   "license": "ISC",
