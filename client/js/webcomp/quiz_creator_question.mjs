@@ -5,8 +5,6 @@ class QuizCreatorQuestion extends HTMLElement {
         this.options = [];
         this.answer = [];
 
-        this.answerAlreadyFound = false;
-
         this.addOption = this.addOption.bind(this);
         this.confirmQuestion = this.confirmQuestion.bind(this);
     }   
@@ -66,8 +64,7 @@ class QuizCreatorQuestion extends HTMLElement {
         for(let option of this.options) {
             option.setOption();
             if (option.isCorrectCheckbox.checked === true) {
-                this.answerAlreadyFound = true;
-                this.answer = option.optionText;
+                this.answer.push(option.optionText);
             }
         }
 
