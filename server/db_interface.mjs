@@ -100,11 +100,11 @@ export function updateUserProfile(uid, column, newValue,  callback) {
                     console.log(err.message);
                 }
             })
-            // db.run(sql2, (err) => {
-            //     if (err) {
-            //         console.log(err.message);
-            //     }
-            // })
+            db.run(sql2, (err) => {
+                if (err) {
+                    console.log(err.message);
+                }
+            })
         }
     });
 }
@@ -156,5 +156,5 @@ export function createQuiz(uid, quizTitle, quizData) {
 }
 
 //createStudent(1, "a", "b", "c", "email");
-createQuiz("b", "c", "d");
-//displayTable('quiz_details');
+//createQuiz("b", "c", "d");
+//displayTable('lecturer_details');

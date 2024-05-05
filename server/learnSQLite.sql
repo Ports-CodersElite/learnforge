@@ -12,9 +12,9 @@ CREATE TABLE student_details(
 
 CREATE TABLE lecturer_details(
     lecturer_id TEXT PRIMARY KEY,
-    lecturer_fname TEXT NOT NULL,
-    lecturer_mname TEXT,
-    lecturer_lname TEXT NOT NULL,
+    user_fname TEXT NOT NULL,
+    user_mname TEXT,
+    user_lname TEXT NOT NULL,
     lecturer_emailaddress TEXT
 );
 
