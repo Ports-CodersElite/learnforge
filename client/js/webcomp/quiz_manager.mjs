@@ -40,6 +40,7 @@ class QuizManager extends HTMLElement {
 
     connectedCallback() {
         this.addStyle();
+        this.quiz = JSON.parse(sessionStorage.getItem('selectedQuiz'));
         this.scoreHTML = document.createElement('h1');
         this.scoreHTML.textContent = "Score: " + this.score + " / " + this.quiz.length;
         this.scoreHTML.classList.add('score-text');
