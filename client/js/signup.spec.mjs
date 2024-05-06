@@ -8,7 +8,7 @@ describe("Testing dropdown selection", function(){
     });
     
     it("Selected Teacher drop down", function(){
-        const res = signUp.TeacherDropdownFunc();
+        const res = signUp.lecturerDropdownFunc();
         expect(res).toBe("lecturer");
     });
 })
