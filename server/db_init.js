@@ -34,7 +34,7 @@ CREATE TABLE class_student(
 
 CREATE TABLE quiz_details(
     quiz_id INTEGER PRIMARY KEY,
-    creator_id TEXT NOT NULL, 
+    creator_id TEXT NOT NULL,
     quiz_title TEXT NOT NULL,
     quiz_data TEXT NOT NULL,
     FOREIGN KEY(creator_id) REFERENCES lecturer_details(lecturer_id)
@@ -65,7 +65,7 @@ CREATE TABLE quiz_history(
 );`
 
 
-// Only needs to be called one time to create database
+// Only needs to be called one time to create database file
 function init() {
     console.log("INITIALIZING DB");
     const db = new sqlite3.Database("./learnforge.db", sqlite3.OPEN_READWRITE, (err) =>{

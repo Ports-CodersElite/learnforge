@@ -16,7 +16,7 @@ class QuizCreatorQuestion extends HTMLElement {
         this.questionBackgroundDiv.classList.add(['sub-container']);
         this.questionBackgroundDiv.id = 'backgroundDiv';
 
-        this.questionNameH3 = document.createElement('h3');
+        this.questionNameH3 = document.createElement('h2');
         this.questionNameH3.textContent = 'Question';
 
         this.questionNameInput = document.createElement('input');
@@ -37,16 +37,36 @@ class QuizCreatorQuestion extends HTMLElement {
         this.shadow.innerHTML += `
             <style>
                 #backgroundDiv {
-                    background-color: darkgray;
+                    background: #e0e0e0;
+                    padding: 2em;
+                    margin: 3em;
+                    border-radius: 1em;
+                    font-size: large;
+                
+                    min-height: 15vh;
                 }
 
                 input {
-
+                    align-self: center;
+                    font-size: larger;
+                    border-radius: 1em;
+                    border: none;
+                    padding: 1em;
                 }
 
                 button {
-                    float: right;
-                    margin-right: 1em;
+                    border: none;
+                    
+                    background-color: #0d6efd;
+                    color: white;
+                    padding: 1em;
+                    margin: 1em;
+                    font-size: large;
+                    border-radius: 1em;
+                }
+
+                button:hover{
+                    background-color: #0D66E9 ;
                 }
             </style>
         `

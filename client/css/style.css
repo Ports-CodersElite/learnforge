@@ -5,6 +5,16 @@ body {
   min-height: 100vh;
  }
 
+#filter-bar{
+  display: flex;
+  flex-direction: column;
+}
+
+#time-filter{
+  display: flex;
+  flex-direction: row;
+}
+
  .show-login{
   display: flex;
   flex-direction: row;
@@ -14,6 +24,30 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 0.3vw;
+
+}
+
+.login-scroller{
+  
+  
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+}
+
+.filter-dropdown{
+  width: 20%;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+.contrast-bg{
+
+  background-color: rgba(209, 209, 209, 0.173);
+  border-radius: 2em;
 
 }
 
@@ -49,18 +83,25 @@ body {
 .loginRegPanel {
     display: flex;
     flex-direction: column;
-    width: 25%;
+
+    justify-content: space-around;
+    width: 30vw;
     margin: auto;
     padding: 3em;
     border-radius: 1em;
     background-color: rgb(244, 244, 244);
 
     position: absolute;
-    height: 40vh;
+    height: 60vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.login-btn{
+  width: 10vw;
+  align-self: center;
 }
 
 .wrapper{
@@ -130,6 +171,13 @@ body {
 .main-container-list{
   width: 79vw;
   height: 65vh;
+
+  overflow-y: scroll;
+}
+
+.activity-container-list{
+  width: 98%;
+  height: 45%;
 
   overflow-y: scroll;
 }
@@ -227,21 +275,24 @@ body {
 }
 
 .nav-button-list{
+  background-color: rgba(0, 255, 255, 0);
   display: flex;
   flex-direction: column;
-  height: 75vh;
-  margin-top: 4em;
-  margin-right: 2em;
-  padding: 1em;
+  height: 80%;
+  margin-top: 10%;
+  margin-right: 2vh;
   overflow-y:scroll;
   overflow-x: hidden;
+
+  padding: 10%;
+
 }
 
 .nav-item{
   /*box-shadow: 0em 0.2em 0.5em rgba(0, 0, 0, 0.195);*/
-  margin-left: 1.5em;
-  margin-top: 1em;
-  padding: 1.5em;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-size: 150% !important;
   text-align: start !important;
 }
@@ -255,8 +306,12 @@ body {
 #logout-btn{
   background: #0c82ff !important;
   border-color: #007bff00;
-  margin-top: -0.4em;
-  margin-left: 4vw;
+
+  font-size: 150%;
+
+  width: 10vw;
+
+  margin-left: 50%;
 
   transition: background 0.2s ease;
     -webkit-transition: background 0.2s ease;
