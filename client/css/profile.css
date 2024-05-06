@@ -30,6 +30,7 @@
     border-radius: 2em;
 
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .profile-scroll{

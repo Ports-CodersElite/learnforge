@@ -38,8 +38,27 @@ class QuizCreatorOption extends HTMLElement {
         this.shadow.innerHTML += `
         <style>
             #backgroundDiv {
-                background-color: gray;
+
+                background-color: rgba(209, 209, 209, 0.4);
+                border-radius: 2em;
+                padding: 1em;
+                margin: 1em;
+                
             }
+
+            p{
+                font-style: bold;
+                font-size: large;
+            }
+
+            input {
+                align-self: center;
+                font-size: larger;
+                border-radius: 1em;
+                border: none;
+                padding: 1em;
+            }
+
         </style>
         `
     }

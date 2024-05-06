@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Selector</title>
+    <title>Learn Forge - My Classes</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/class_pages.css">
 
@@ -18,28 +18,33 @@
 
 <body class ="p-3 bg-grad" data-bs-theme="light">
 
-    <a id ="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
-    
-    <div id = "nav" class = "nav-bar bg-primary nav-init">
-      <ul class="nav-button-list">
-          <li class="btn btn-primary nav-item" type="button">Profile</li>
-          <li class="btn btn-primary nav-item" type="button">Dashboard</li>
-          <li class="btn btn-primary nav-item" type="button">Activity</li>
-          <li class="btn btn-primary nav-item" type="button">Quizzes</li>
-          <li class="btn btn-primary nav-item" type="button">Classes</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
-          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
 
-      </ul>
+    <div id="nav" class="bg-primary nav-init">
 
-      <hr>
-      <a id = "logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+        <ul class="nav-button-list">
+            <a class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</a>
+            <a class="btn btn-primary nav-item" href="dashboard.html" type="button">Dashboard</a>
+            <a class="btn btn-primary nav-item" href="activity.html" type="button">Activity</a>
+            <a class="btn btn-primary nav-item" href="quiz_list.html" type="button">My Quizzes</a>
+            <a class="btn btn-primary nav-item" href="class_list.html" type="button">My Classes</a>
+
+            <hr>
+
+            <a class="btn btn-primary nav-item" href="create_quiz.html" type="button">Quiz Creator</a>
+            <a class="btn btn-primary nav-item" href="class_creator.html" type="button">Class Creator</a>
+
+            
+        </ul>
+
+
+        <hr>
+
+
+        <a id="logout-btn" class="btn btn-primary" type="button">Logout</a>
+        
     </div>
+
 
 
     <div class="p-5 main-container">

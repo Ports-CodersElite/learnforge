@@ -7,35 +7,48 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body class="bg-grad" data-bs-theme="light">
+
+<body class="p-3 bg-grad" data-bs-theme="light">
     <section class="loginRegPanel">
         <h1 class="fs-1">Register</h1>
-        
-        <p class="fs-5 mb-0">First Name</p>
-        <input type="text" class="form-control" id="fnameInput">
-        <p class="fs-5 mb-0">Middle Name</p>
-        <input type="text" class="form-control" id="mnameInput">
-        <p class="fs-5 mb-0">Last Name</p>
-        <input type="text" class="form-control" id="lnameInput">
 
-        <p class="fs-5 mb-0">Email</p>
-        <input type="text" class="form-control" id="emailInput">
+        <hr>
 
-        <p class="fs-5 mb-0">Password</p>
-        <input type="password" class="form-control" id="passwordInput">
+        <div class="login-scroller p-2">
 
-        <div class="dropdown-center mt-2">
-            <button class="btn btn-primary dropdown=toggle" type="button" data-bs-toggle="dropdown">
-                Select Role
-            </button>
-            <ul class="dropdown-menu">
-                <li><button id="studentDropdown" class="dropdown-item">student</button></li>
-                <li><button id="teacherDropdown" class="dropdown-item">lecturer</button></li>
-            </ul>
+            <div class="contrast-bg p-4">
+
+                <p class="fs-5 mb-0">First Name</p>
+                <input type="text" class="form-control" id="fnameInput" placeholder="eg. John">
+                <p class="fs-5 mb-0">Last Name</p>
+                <input type="text" class="form-control" id="lnameInput" placeholder="eg. Doe">
+
+                <p class="fs-5 mb-0">Email</p>
+                <input type="text" class="form-control" id="emailInput" placeholder="eg. myname@mymail.com">
+
+                <p class="fs-5 mb-0">Password</p>
+                <input type="password" class="form-control" id="passwordInput">
+
+                <div class="dropdown-center mt-2">
+                <button class="btn btn-primary dropdown=toggle" type="button" data-bs-toggle="dropdown">
+                    Select Role
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button id="studentDropdown" class="dropdown-item">Student</button></li>
+                    <li><button id="teacherDropdown" class="dropdown-item">Teacher</button></li>
+                </ul>
+
+            </div>
+            
+            
+
+                
+                
+            </div>
         </div>
 
-        <button class="btn btn-primary mt-2" id="signupBtn">Sign Up</button>
-        <a href="./index.html">Back to login :)</a>
+        <button class="btn btn-primary mt-2 login-btn" id="signupBtn">Sign Up</button>
+        <a href="./index.html">I already have an account</a>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./js/signup.mjs" type="module"></script>

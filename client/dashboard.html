@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Learn Forge - Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/dashboard.css">
 
@@ -20,18 +20,29 @@
 
     <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
 
-    <div id="nav" class="nav-bar bg-primary nav-init">
+    <div id="nav" class="bg-primary nav-init">
+
         <ul class="nav-button-list">
-            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile
-            </li>
-            <li class="btn btn-primary nav-item" type="button">Dashboard</li>
-            <li class="btn btn-primary nav-item" type="button">Activity</li>
-            <li class="btn btn-primary nav-item" type="button">Quizzes</li>
-            <li class="btn btn-primary nav-item" type="button">Classes</li>
+            <a class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</a>
+            <a class="btn btn-primary nav-item" href="dashboard.html" type="button">Dashboard</a>
+            <a class="btn btn-primary nav-item" href="activity.html" type="button">Activity</a>
+            <a class="btn btn-primary nav-item" href="quiz_list.html" type="button">My Quizzes</a>
+            <a class="btn btn-primary nav-item" href="class_list.html" type="button">My Classes</a>
+
+            <hr>
+
+            <a class="btn btn-primary nav-item" href="create_quiz.html" type="button">Quiz Creator</a>
+            <a class="btn btn-primary nav-item" href="class_creator.html" type="button">Class Creator</a>
+
+            
         </ul>
 
+
         <hr>
-        <a id="logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+
+
+        <a id="logout-btn" class="btn btn-primary" type="button">Logout</a>
+        
     </div>
 
 
@@ -74,105 +85,6 @@
 
         </div>
 
-        <!--
-        <h1 class="fs-5" style="text-decoration: underline; font-size: larger;">Welcome to your Dashboard!</h1>
-        <h2 class="fs-6">The University of Portsmouth</h2>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Profile Data</h2>
-
-                        <div class ="">
-                    profile-picture.jpg
-                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-                    <span class ="main-text">John Doe</span>
-                    <span class ="sub-text">(id: 1234567)</span>
-                </div>
-                
-
-                <div>
-                    <button class="btn btn-primary mt-2" onclick="window.location.href = 'profile.html';">
-                        Head to Profile
-                    </button>
-                </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Classes</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa repellat sapiente harum
-                            libero
-                            iure nostrum impedit delectus, voluptatibus suscipit obcaecati laborum ducimus qui cum
-                            temporibus sint eum ad accusamus veniam?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Recent Quizes</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa repellat sapiente harum
-                            libero
-                            iure nostrum impedit delectus, voluptatibus suscipit obcaecati laborum ducimus qui cum
-                            temporibus sint eum ad accusamus veniam?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Todo Assessments</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa repellat sapiente harum
-                            libero
-                            iure nostrum impedit delectus, voluptatibus suscipit obcaecati laborum ducimus qui cum
-                            temporibus sint eum ad accusamus veniam?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Recent Progress</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa repellat sapiente harum
-                            libero
-                            iure nostrum impedit delectus, voluptatibus suscipit obcaecati laborum ducimus qui cum
-                            temporibus sint eum ad accusamus veniam?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Create Class/Quiz</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa repellat sapiente harum
-                            libero
-                            iure nostrum impedit delectus, voluptatibus suscipit obcaecati laborum ducimus qui cum
-                            temporibus sint eum ad accusamus veniam?</p>
-                        <button class="btn btn-primary mt-2">Create Class/Quiz</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    
-    </div>
-
-    <button class="btn btn-primary signOut">Sign Out</button>
-    <button class="btn btn-primary change-theme-button" onclick="changeTheme()">Toggle Theme</button>
-
-    -->
 
         <script>
             function changeTheme() {

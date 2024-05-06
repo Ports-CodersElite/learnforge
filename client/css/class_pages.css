@@ -4,12 +4,26 @@
     justify-content: space-between;
 }
 
+.class-view-contents{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 255, 0);
+
+    height: 70vh;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .student-list{
     width: 79vw;
     height: 35vh;
 
     overflow-y: scroll;
+
 }
+
+
 
 .student-item{
     background: #e0e0e0;
@@ -19,10 +33,9 @@
     font-size: large;
   
     flex-grow: 1;
-    max-height: 15vh;
+    height: 15vh;
   
-    display: flex;
-    flex-direction: column;
+   
   
     text-decoration: none;
     transition: background 0.2s ease;
