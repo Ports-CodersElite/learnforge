@@ -100,11 +100,11 @@ export function updateUserProfile(uid, column, newValue,  callback) {
                     console.log(err.message);
                 }
             })
-            // db.run(sql2, (err) => {
-            //     if (err) {
-            //         console.log(err.message);
-            //     }
-            // })
+            db.run(sql2, (err) => {
+                if (err) {
+                    console.log(err.message);
+                }
+            })
         }
     });
 }
@@ -150,11 +150,78 @@ export function createQuiz(uid, quizTitle, quizData) {
                     }
                 }
             }
+            repeat(timeout);
         }
-        repeat(5);
-        });
+    });
 }
 
+export function createClass(lecturerID, className, joinCode) {
+    openDb((res) => {
+        if(res) {
+            let timeout = 5;
+            let validId = false
+            let tmpId;
+            var repeat = function(triesLeft) {
+                if(triesLeft > 0 && validId == false) {
+                    tmpId = getRandomInt(9223372036854775807); // max sql integer value
+                    let checkSql = `SELECT * FROM class_details WHERE class_id = ` + tmpId + `;`;
+                    db.get(checkSql, [], (err, row) => {
+                        if(err) {
+                            return console.log(err.message);
+                        }
+                        if(row == undefined) {
+                            validId = true;
+                            let insertSql = `INSERT INTO class_details VALUES (?, ?, ?, ?)`
+                            db.get(insertSql, [tmpId, lecturerID, className, joinCode], (err, row) => {
+                                if(err) {
+                                    return console.log(err.message);
+                                }
+                            })
+                        }
+                        else {
+                            repeat(triesLeft - 1)
+                        }
+                    })
+                }
+                else {
+                    if(validId) {
+                        console.log("Got unique ID: ", tmpId);
+                    }
+                    else {
+                        console.log("Couldn't get unique ID");
+                    }
+                }
+            }
+            repeat(timeout);
+        }
+    })
+}
+
+export function addStudentToClass(studentID, classID) {
+    if(studentID != null && classID != null) {
+        openDb((res) => {
+            if(res) {
+                let sql = 'INSERT INTO class_student VALUES (?, ?)';
+                db.run(sql, [classID, studentID], (err) =>{
+                    if(err) {
+                        return console.log(err.message);
+                    }
+                });
+            }
+        })
+    }
+    else {
+        console.log("Student or class ID null");
+    }
+    
+}
+//createStudent("dfsdfsdfs", "stdname", "", "stdlname", "std@gmail.com");
+//addStudentToClass("dfsdfsdfs", 3334899515468085000);
+//displayTable("class_student");
+
+//createClass("Y7mbVeY3zzTlzomrLB5YIRyIhEZ2", "maths", "mathscode");
+//displayTable("class_details");
+
 //createStudent(1, "a", "b", "c", "email");
-createQuiz("b", "c", "d");
-//displayTable('quiz_details');
+//createQuiz("b", "c", "d");
+//displayTable('lecturer_details');
