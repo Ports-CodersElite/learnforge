@@ -20,7 +20,7 @@ let selectedRole = null;
 function eventListeners() {
     buttons.signupBtn = document.querySelector("#signupBtn");
     buttons.studentDropdown = document.querySelector("#studentDropdown");
-    buttons.teacherDropdown = document.querySelector("#teacherDropdown");
+    buttons.lecturerDropdown = document.querySelector("#teacherDropdown");
     inputs.fname = document.querySelector('#fnameInput');
     inputs.lname = document.querySelector('#lnameInput');
     inputs.email = document.querySelector('#emailInput');
@@ -29,7 +29,7 @@ function eventListeners() {
 
     buttons.signupBtn.addEventListener("click", Signup);
     buttons.studentDropdown.addEventListener("click", StudentDropdownFunc);
-    buttons.teacherDropdown.addEventListener("click", TeacherDropdownFunc);
+    buttons.lecturerDropdown.addEventListener("click", lecturerDropdownFunc);
 }
 
 // Send user details to auth.mjs for the user to be created/sign up. Runs when signupBtn is clicked.
@@ -52,7 +52,7 @@ export function StudentDropdownFunc() {
   }
   
   // If the user role select in the dropdown menu is student set the global variable selectRole to lecturer.
-export function TeacherDropdownFunc() {
+export function lecturerDropdownFunc() {
     selectedRole = "lecturer";
     return selectedRole;
 }
