@@ -155,6 +155,24 @@ export function createQuiz(uid, quizTitle, quizData) {
     });
 }
 
+export function getQuizzesFromLecturer(lecturerId, callback) {
+    openDb((res) => {
+        if(res) {
+            let sql = `SELECT * FROM quiz_details WHERE quiz_details.creator_id = (?);`;
+            db.all(sql, [lecturerId], (err, rows) => {
+                if(err) {
+                    return console.log(err.message);
+                }
+                let data = [];
+                rows.forEach((row) => {
+                    data.push(row);
+                });
+                callback(data);
+            })
+        }
+    })
+}
+
 export function createClass(lecturerId, className, joinCode, callback) {
     openDb((res) => {
         if(res) {
@@ -220,7 +238,10 @@ export function getClassesFromLecturer(lecturerId, callback) {
     });
 }
 
-//createStudent("sid8", "stdfname", "", "stdlname", "semail8");
+// createQuiz("lid1", "mathtest", "{Lol}");
+// createQuiz("lid1", "mathtest2", "{Lol2}");
+
+// createStudent("sid8", "stdfname", "", "stdlname", "semail8");
 // createLecturer("lid1", "lectf", "", "lectl", "lemail1");
 // createStudent("sid2", "stdf", "", "stdl", "semail2");
 // createClass("lid1", "Maths", "joinmaths");
@@ -232,3 +253,8 @@ export function getClassesFromLecturer(lecturerId, callback) {
 //displayTable("class_student");
 
 //getClassesFromLecturer("lid1", (res)=>{console.log(res)});
+
+
+// getQuizzesFromLecturer("lid1", (res) => {
+//     console.log(res);
+// })
