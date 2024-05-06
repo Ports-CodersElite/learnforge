@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script type="module" src="./js/navbar.mjs"></script>
+    <!-- <script type="module" src="./js/create_quiz.mjs"></script> -->
+    <script type="module" src="./js/webcomp/quiz_creator.mjs"></script>
+    <script type="module" src="./js/webcomp/quiz_creator_question.mjs"></script>
+    <script type="module" src="./js/webcomp/quiz_creator_option.mjs"></script>
+    <script type="module" src="./js/create_quiz.mjs"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/quiz_pages.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-grad" data-bs-theme="light">
+
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
+
+    <div id="nav" class="nav-bar bg-primary nav-init">
+        <ul class="nav-button-list">
+            <li class="btn btn-primary nav-item" type="button">Profile</li>
+            <li class="btn btn-primary nav-item" type="button">Dashboard</li>
+            <li class="btn btn-primary nav-item" type="button">Activity</li>
+            <li class="btn btn-primary nav-item" type="button">Quizzes</li>
+            <li class="btn btn-primary nav-item" type="button">Classes</li>
+        </ul>
+
+        <hr>
+        <a id="logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+    </div>
+
+    <div class="p-5 main-container">
+
+        <div class="show-login">
+            <h1>Quiz Creator</h1>
+            <div>
+                <span class="p-3 sub-text" id="loggedInAs">Logged in as John Doe</span>
+                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            </div>
+        </div>
+
+        <hr>
+
+
+
+        <div class="main-container-list">
+            <!-- 
+            <div class="sub-container">
+                <span class="sub-text text-end">Quiz Author: Mrs. Smith</span>
+                <h4>Enter a name for your quiz:</h4>
+                <input type="text" class="m-3 quiz-name-input form-control" placeholder="My Quiz" id="quizName">
+
+                <span class="sub-text text-end invalid-input">*Message that would display for invalid inputs.</span>
+            </div> -->
+
+            <quiz-creator class="webComponenet" id="quizCreator"></quiz-creator>
+
+            <!-- <div class="sub-container">
+                <h3 class="p-3">Question X</h3>
+                <h4 class="sub-text">Enter your question:</h4>
+                <textarea type="text" class="m-3 quiz-question-input form-control" placeholder="Your question"
+                    id="quizName"></textarea>
+
+                <hr>
+
+                <div class="question-choices" id="question-choices-container">
+
+                    <div class="p-4">
+                        <span class="">Choice X</span>
+                        <textarea type="text" class="m-3 quiz-question-input form-control" placeholder="Your answer"
+                            id="quizName"></textarea>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <span class="answer-checkbox-text">Choice X is correct?</span>
+                    </div>
+
+                    <div class="p-4">
+                        <span class="">Choice X</span>
+                        <textarea type="text" class="m-3 quiz-question-input form-control" placeholder="Your answer"
+                            id="quizName"></textarea>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <span class="answer-checkbox-text">Choice X is correct?</span>
+                    </div>
+
+                    <div class="p-4">
+                        <span class="">Choice X</span>
+                        <textarea type="text" class="m-3 quiz-question-input form-control" placeholder="Your answer"
+                            id="quizName"></textarea>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <span class="answer-checkbox-text">Choice X is correct?</span>88
+                    </div>
+
+                    <div class="p-4">
+                        <span class="">Choice X</span>
+                        <textarea type="text" class="m-3 quiz-question-input form-control" placeholder="Your answer"
+                            id="quizName"></textarea>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <span class="answer-checkbox-text">Choice X is correct?</span>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <button class="btn btn-primary m-2 p-2 align-self-end" id="newChoiceBtn">Add a choice</button>
+            </div>
+
+            <hr class="m-3">
+
+            <button class="btn btn-primary m-4 p-2 align-self-end" id="newQuestionBtn">Add a question</button>
+
+            <hr class="m-3">
+
+            <div class="button-container">
+                <button class="btn btn-primary m-4 p-3 align-content-center" id="createQuizBtn">Create quiz</button>
+            </div> -->
+
+        </div>
+
+
+        <script src="./js/navbar.mjs" type="module"></script>
+</body>
+
+</html>

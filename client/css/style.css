@@ -95,6 +95,20 @@ body {
     width: 85vw;
   }
 
+.sub-container{
+    background: #e0e0e0;
+    padding: 2em;
+    margin: 3em;
+    border-radius: 1em;
+    font-size: large;
+  
+    flex-grow: 1;
+    min-height: 15vh;
+  
+    display: flex;
+    flex-direction: column;
+}
+
   
 .main-text{
   font-weight: bold;
@@ -117,6 +131,8 @@ body {
 
   overflow-y: scroll;
 }
+
+
 
 .list-item{
   background: #e0e0e0;
