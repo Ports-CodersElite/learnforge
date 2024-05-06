@@ -1,6 +1,7 @@
 // Imports the database query functions
 import * as db from './db_query.mjs';
-export let lecturerId = document.querySelector('#lecturer').value;
+
+export let lectureId = null;
 const classFormInputs = [...document.querySelectorAll('.class-details-input')];
 const createClassBtn = document.querySelector('#createQuizBtn');
 
@@ -27,6 +28,12 @@ function updateClassDetails() {
     emptyInputValues();
     removeInputBoxes();
     createMessage();
+    lectureId = inputData[0];
+}
+
+export function returnID () {
+    console.log(lectureId);
+    return lectureId;
 }
 
 // Remove UI elements from the page
