@@ -53,36 +53,36 @@
 
                 <hr>
 
-                <button class="btn btn-primary mt-2 profile-btn" id="editBtn" >Edit Details</button>
-
-                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture p-4">
+                <button class="btn btn-primary mt-2 profile-btn" id="editBtn">Edit Details</button>
+                <button class="btn btn-primary mt-2 profile-btn d-none" id="saveBtn">Save Changes</button>
+                <button class="btn btn-primary mt-2 profile-btn d-none" id="cancelBtn">Cancel Changes</button>
 
                 <div class = "align-form">
                     <div class = "form-label">
                         <p class="fs-5 mb-0">First Name</p>
-                    <input type="text" class="form-control" id="nameInput">
+                        <input type="text" class="form-control d-none" id="fnameInput">
+                        <label id="fnameLabel">NAME HERE</label>
                     </div>
                     
                     <div class="form-label">
                         <p class="fs-5 mb-0">Surname</p>
-                        <input type="password" class="form-control" id="surnameInput">
+                        <input type="text" class="form-control d-none" id="lnameInput">
+                        <label id="lnameLabel">LNAME HERE</label>
                     </div>
-                    
-
                 </div>
 
                 <hr>
 
                 <div class="form-label">
                     <p class="fs-5 mb-0 ">Email:</p>
-                <input type="password" class="form-control" id="emailInput" placeholder="eg. youremail@domain.com">
+                    <label id="emailLabel">EMAIL HERE</label>
 
                 </div>
 
 
                 <div class="form-label">
                     <p class="fs-5 mb-0">ID Number:</p>
-                <input type="password" class="form-control" id="idNumber" placeholder="eg. 1234567">  
+                    <label id="idLabel">ID HERE</label>
                 </div>
 
                 <hr>
@@ -103,9 +103,8 @@
 
         
     </section>
-    <!-- <input type="file" id="fileInput" style="display: none;" onchange="handleImageUpload(event)"> -->
     <script src="./js/profile.mjs" type="module"></script>
-    <script src="./js/navbar.js" type="module"></script>
+    <script src="./js/navbar.mjs" type="module"></script>
 
 </body>
 </html>
