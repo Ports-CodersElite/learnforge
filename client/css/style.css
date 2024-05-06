@@ -328,6 +328,26 @@ ul{
   position: absolute;
   z-index: 3;
 }
+
+.sub-container.hide {
+  display: none;
+}
+
+#createQuizBtn.hide{
+  display: none;
+}
+
+.h4-css{
+  display: flex;
+  justify-content: center;
+  color: green;
+  size: 300px;
+}
+
+link {
+  display: flex;
+  justify-content: center;
+}
 /* =======
 >>>>>>> main
 >>>>>>> 16a0343e02c481f6b9705ad0db65515d4cd53adb */
