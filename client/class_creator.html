@@ -10,6 +10,7 @@
     <script type="module" src="js/webcomp/quiz_manager.mjs"></script>
     <script type="module" src="./js/navbar.mjs"></script>
     <script type="module" src="./js/dashboard.mjs"></script>
+    <script type="module" src="./js/class_creator.mjs"></script>
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/quiz_pages.css">
@@ -17,64 +18,78 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body class = "bg-grad" data-bs-theme="light">
+<body class="bg-grad" data-bs-theme="light">
 
-    <a id ="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
-    
-    <div id = "nav" class = "nav-bar bg-primary nav-init">
-      <ul class="nav-button-list">
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'dashboard.html';">Dashboard</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'activity.html';">Activity</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'create_quiz.html';">Quiz Creator</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'quiz_list.html';">View Quizzes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_list.html';">View Classes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_creator.html';">Create Classes</li>
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
 
-      </ul>
+    <div id="nav" class="nav-bar bg-primary nav-init">
+        <ul class="nav-button-list">
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile
+            </li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'dashboard.html';">
+                Dashboard</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'activity.html';">
+                Activity</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'create_quiz.html';">Quiz
+                Creator</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'quiz_list.html';">View
+                Quizzes</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_list.html';">View
+                Classes</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_creator.html';">
+                Create Classes</li>
 
-      <hr>
-      <a id = "logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+        </ul>
+
+        <hr>
+        <a id="logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
     </div>
 
-      <div class="p-5 main-container">
+    <div class="p-5 main-container">
 
         <div class="show-login">
             <h1>Class Creator</h1>
             <div>
                 <span class="p-3 sub-text" id="loggedInAs">Logged in as John Doe</span>
-                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
             </div>
         </div>
-        
+
         <hr>
 
         <div class="main-container-list">
 
             <div class="sub-container">
                 <span class="sub-text text-end">Class Teacher: Mrs. Smith</span>
-                <h4>Enter a name for your class:</h4>
-                <input type="text" class="quiz-name-input form-control" placeholder="English Class A" id="className">
+                <h4>Lecturer ID:</h4>
+                <input type="text" class="quiz-name-input form-control class-details-input" placeholder="e.g. 1233"
+                    id="lecturer">
 
                 <span class="sub-text text-end invalid-input">*Message that would display for invalid inputs.</span>
             </div>
 
             <div class="sub-container">
-                <h4>Add a summary of this class:</h4>
-                <span class="sub-text ">*this can help both students and teachers to differentiate from classes which perhaps have similar names</span>
-                <input type="text" class="m-2 quiz-name-input form-control" placeholder="eg. Mrs Smith's Monday English Class" id="className">
+                <h4>Class name:</h4>
+                <span class="sub-text "></span>
+                <input type="text" class="m-2 quiz-name-input form-control class-details-input"
+                    placeholder="e.g. Class1A" id="className">
 
                 <span class="sub-text text-end invalid-input">*Message that would display for invalid inputs.</span>
+            </div>
+
+            <div class="sub-container">
+                <h4>Join Code:</h4>
+                <input type="text" class="m-2 quiz-name-input form-control class-details-input" placeholder="e.g. 2"
+                    id="className">
+                <span class="sub-text text-end invalid-input ">*Message that would display for
+                    invalid inputs.</span>
             </div>
 
             <div class="button-container">
                 <button class="btn btn-primary p-3" id="createQuizBtn">Create class</button>
             </div>
 
-        </div>
 
-    
-    <script src="./js/navbar.js" type="module"></script>
+            <script src="./js/navbar.mjs" type="module"></script>
 </body>
 
 </html>

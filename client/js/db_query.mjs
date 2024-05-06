@@ -50,3 +50,14 @@ export function uploadQuiz(uid, quizTitle, quizData) {
         body: JSON.stringify(payload)
     })
 }
+
+export function createClass(lecturer_id, className, joinCode) {
+    let payload = [lecturer_id, className, joinCode];
+    fetch('/create-class', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+}
