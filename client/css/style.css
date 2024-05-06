@@ -93,6 +93,8 @@ body {
     left: 0;
     right: 0;
     width: 85vw;
+
+    overflow: hidden;
   }
 
 .sub-container{
