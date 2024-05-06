@@ -12,16 +12,15 @@ CREATE TABLE student_details(
 
 CREATE TABLE lecturer_details(
     lecturer_id TEXT PRIMARY KEY,
-    lecturer_fname TEXT NOT NULL,
-    lecturer_mname TEXT,
-    lecturer_lname TEXT NOT NULL,
-    lecturer_emailaddress TEXT
+    user_fname TEXT NOT NULL,
+    user_mname TEXT,
+    user_lname TEXT NOT NULL,
+    user_emailaddress TEXT
 );
 
 CREATE TABLE class_details(
     class_id INTEGER PRIMARY KEY,
     lecturer_id TEXT NOT NULL,
-    course TEXT NOT NULL,
     class_name TEXT NOT NULL,
     join_code INTEGER NOT NULL,
     FOREIGN KEY(lecturer_id) REFERENCES lecturer_details(lecturer_id)
