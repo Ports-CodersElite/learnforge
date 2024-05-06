@@ -155,73 +155,80 @@ export function createQuiz(uid, quizTitle, quizData) {
     });
 }
 
-export function createClass(lecturerID, className, joinCode) {
+export function createClass(lecturerId, className, joinCode, callback) {
     openDb((res) => {
         if(res) {
-            let timeout = 5;
-            let validId = false
-            let tmpId;
-            var repeat = function(triesLeft) {
-                if(triesLeft > 0 && validId == false) {
-                    tmpId = getRandomInt(9223372036854775807); // max sql integer value
-                    let checkSql = `SELECT * FROM class_details WHERE class_id = ` + tmpId + `;`;
-                    db.get(checkSql, [], (err, row) => {
-                        if(err) {
-                            return console.log(err.message);
-                        }
-                        if(row == undefined) {
-                            validId = true;
-                            let insertSql = `INSERT INTO class_details VALUES (?, ?, ?, ?)`
-                            db.get(insertSql, [tmpId, lecturerID, className, joinCode], (err, row) => {
-                                if(err) {
-                                    return console.log(err.message);
-                                }
-                            })
-                        }
-                        else {
-                            repeat(triesLeft - 1)
-                        }
-                    })
+            let checkJoinCodeExists = `SELECT 1 FROM class_details WHERE join_code = '` + joinCode + `';`; 
+            db.get(checkJoinCodeExists, [], (err, row) => {
+                if(err) {
+                    return console.log(err.message);
                 }
                 else {
-                    if(validId) {
-                        console.log("Got unique ID: ", tmpId);
+                    if(row == undefined) {
+                        let addToDb = `INSERT INTO class_details (join_code, lecturer_id, class_name) VALUES (?, ?, ?);`;
+                        db.run(addToDb, [joinCode, lecturerId, className], (err) => {
+                            if(err) return console.log(err.message);
+                        });
                     }
                     else {
-                        console.log("Couldn't get unique ID");
+                        console.log("That join code is unavailable");
+                        callback("UNAVAILABLE");
                     }
                 }
-            }
-            repeat(timeout);
+            });
         }
-    })
+    });
 }
 
-export function addStudentToClass(studentID, classID) {
-    if(studentID != null && classID != null) {
+export function addStudentToClass(studentId, joinCode, callback) {
+    if(studentId != null && joinCode != null) {
         openDb((res) => {
             if(res) {
-                let sql = 'INSERT INTO class_student VALUES (?, ?)';
-                db.run(sql, [classID, studentID], (err) =>{
+                let sql = 'INSERT INTO class_student VALUES (?, ?);';
+                db.run(sql, [joinCode, studentId], (err) =>{
                     if(err) {
-                        return console.log(err.message);
+                        console.log(err.message);
+                        callback("ERROR");
+                    }
+                    else {
+                        callback("SUCCESS");
                     }
                 });
             }
-        })
+        });
     }
     else {
         console.log("Student or class ID null");
     }
-    
 }
-//createStudent("dfsdfsdfs", "stdname", "", "stdlname", "std@gmail.com");
-//addStudentToClass("dfsdfsdfs", 3334899515468085000);
+
+export function getClassesFromLecturer(lecturerId, callback) {
+    openDb((res) => {
+        if(res) {
+            let sql = `SELECT * FROM class_details WHERE lecturer_id = '` + lecturerId + `';`;
+            db.all(sql, [], (err, rows) => {
+                if(err) {
+                    return console.log(err.message);
+                }
+                let data = [];
+                rows.forEach((row) => {
+                    data.push(row);
+                })
+                callback(data);
+            });
+        }
+    });
+}
+
+//createStudent("sid8", "stdfname", "", "stdlname", "semail8");
+// createLecturer("lid1", "lectf", "", "lectl", "lemail1");
+// createStudent("sid2", "stdf", "", "stdl", "semail2");
+// createClass("lid1", "Maths", "joinmaths");
+// createClass("lid1", "English", "joinenglish");
+// createClass("lid1", "MATHS 2", "JOIN MATHS");
+
+//addStudentToClass("sid2", "joinmaths");
+
 //displayTable("class_student");
 
-//createClass("Y7mbVeY3zzTlzomrLB5YIRyIhEZ2", "maths", "mathscode");
-//displayTable("class_details");
-
-//createStudent(1, "a", "b", "c", "email");
-//createQuiz("b", "c", "d");
-//displayTable('lecturer_details');
+//getClassesFromLecturer("lid1", (res)=>{console.log(res)});

@@ -21,16 +21,16 @@ server.post('/new-user', (req, res) =>{
     if (req.body[5] == "student") {
         lf.createStudent(req.body[0], req.body[1], req.body[2], req.body[3], req.body[4]);
         log("///\n", 1);
-        res.send('Student added to db');
+        res.send({Success: "Student added to db"});
     } 
     else if (req.body[5] == "lecturer") {
         lf.createLecturer(req.body[0], req.body[1], req.body[2], req.body[3], req.body[4]);
         log("///\n", 1);
-        res.send('Lecturer added to db');
+        res.send({Success: "Lecturer added to db"});
     }
     else {
         log("Invalid user role\n///\n", 1);
-        res.send('Invalid user role provided');
+        res.send({Error: "Invalid user role provided"});
     }
 });
 
@@ -42,7 +42,7 @@ server.post('/get-profile', (req, res) => {
             if(profileData[0] == "ERROR") {
                 log("Error retrieving profile data", 1);
                 log("///\n", 1);
-                res.send(JSON.stringify("{ERROR}"));
+                res.send({Error: "Error retrieving profile data"});
             }
             else {
                 log("Sending Data", 1);
@@ -54,7 +54,7 @@ server.post('/get-profile', (req, res) => {
     else {
         log("EMPTY USER ID", 1)
         log("///\n", 1);
-        res.send(JSON.stringify("{ERROR}"));
+        res.send({Error: "Failed to retrieve profile: Empty request data"});
     }
 });
 
@@ -64,11 +64,11 @@ server.post("/update-user", (req, res) => {
     if(req != null) {
         log("SENDING TO DB", 1);
         lf.updateUserProfile(req.body[0], req.body[1], req.body[2], () => {});
-        res.send("Successfully updated");
+        res.send({Success: "Successfully updated"});
     }
     else {
         log("FAILED\n///\n", 1);
-        res.send("Failed to update user info");
+        res.send({Error: "Failed to update user info: request empty"});
     }
 });
 
@@ -78,15 +78,62 @@ server.post("/upload-quiz", (req, res) => {
     }
     else {
         log(req.body, 1);
-        log("Failed to create quiz: no data", 1);
+        log("Failed to create quiz: request empty", 1);
+        res.send({Error: "Failed to create quiz: request empty"});
     }
-})
+});
+
+server.post("/create-class", (req, res) => {
+    // format: lecturerId, className, joinCode
+    if(req != null) {
+        console.log(req.body);
+        lf.createClass(req.body[0], req.body[1], req.body[2], (err) =>{
+            if (err == "UNAVAILABLE") {
+                res.send({Error: "that join code is unavailable"});
+            }
+        });
+    }
+    else {
+        log("Error creating class: request empty");
+    }
+});
+
+server.post("/join-class", (req, res) => {
+    // format: studentId, joinCode
+    if(req != null) {
+        lf.addStudentToClass(req.body[0], req.body[1], (ret) => {
+            if(ret == "ERROR") {
+                res.send({Error: "Error adding student to class"});
+                console.log("Error adding student to class");
+            }
+            else {
+                console.log("Successfully joined class");
+                res.send({Success: "Successfully joined class"});
+            }
+        });
+    }
+    else {
+        log("Error joining class: request empty", 1);
+        res.send({Error: "Error joining class: request empty"});
+    }
+});
+
+server.post("/get-classes", (req, res) => {
+    // format: lecturerId
+    if(req != null) {
+        lf.getClassesFromLecturer(req.body, (classes) => {
+            res.send(JSON.stringify(classes));
+        })
+    }
+    else {
+        res.send({Error: "No data was sent with request"});
+    }
+});
 
 function log (mssg, logLevel) {
     if ((logLevel == 1 && logging.level1) || (logLevel == 2 && logging.level2)) {
         console.log(mssg);
     }
 }
-
 
 server.listen(8080);

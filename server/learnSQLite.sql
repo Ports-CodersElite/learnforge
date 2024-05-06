@@ -19,18 +19,17 @@ CREATE TABLE lecturer_details(
 );
 
 CREATE TABLE class_details(
-    class_id INTEGER PRIMARY KEY,
+    join_code TEXT PRIMARY KEY NOT NULL,
     lecturer_id TEXT NOT NULL,
     class_name TEXT NOT NULL,
-    join_code INTEGER NOT NULL,
     FOREIGN KEY(lecturer_id) REFERENCES lecturer_details(lecturer_id)
 );
 
 CREATE TABLE class_student(
-    class_id INTEGER NOT NULL,
+    join_code INTEGER NOT NULL,
     student_id TEXT NOT NULL,
-    PRIMARY KEY (class_id, student_id),
-    FOREIGN KEY (class_id) REFERENCES class_details(class_id),
+    PRIMARY KEY (join_code, student_id),
+    FOREIGN KEY (join_code) REFERENCES class_details(join_code),
     FOREIGN KEY (student_id) REFERENCES student_details(student_id)
 );
 
