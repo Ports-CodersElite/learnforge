@@ -7,10 +7,13 @@ class QuizCreator extends HTMLElement {
         this.addQuestion = this.addQuestion.bind(this);
         this.createQuiz = this.createQuiz.bind(this);
         this.outputQuiz = this.outputQuiz.bind(this);
+        this.output;
     }
     
     connectedCallback() {
         this.shadow = this.attachShadow({mode : 'open'});
+
+        this.customEvent = new CustomEvent('quiz-created');
 
         this.addQuestionBtn = document.createElement('button');
         this.addQuestionBtn.addEventListener('click', this.addQuestion);
@@ -64,7 +67,8 @@ class QuizCreator extends HTMLElement {
             question.options = options;
             this.questionsOutput.push(question);
         }
-        this.outputQuiz();
+        this.output = this.outputQuiz();
+        this.dispatchEvent(this.customEvent);
     }
 
     // Gives quiz in correct format to be loaded into quiz_manager
@@ -73,7 +77,7 @@ class QuizCreator extends HTMLElement {
             quizName: this.name,
             questions: this.questionsOutput
         }
-        console.log(quizObj);
+        return quizObj;
     }
 }
 customElements.define('quiz-creator', QuizCreator);
