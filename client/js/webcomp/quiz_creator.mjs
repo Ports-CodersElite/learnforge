@@ -26,13 +26,41 @@ class QuizCreator extends HTMLElement {
         this.quizName = document.createElement('input');
         this.quizName.placeholder = 'Quiz Name';
         
+        this.addStyle();
         this.shadow.append(this.addQuestionBtn, this.createQuizBtn, this.quizName);
     }
 
     addStyle() {
         this.shadow.innerHTML += `
+        <style>
+        
+            button {
+                border: none;
+                
+                background-color: #0d6efd;
+                color: white;
+                padding: 1em;
+                margin: 1em;
+                font-size: large;
+                border-radius: 1em;
+            }
 
-        `
+            button:hover{
+                background-color: #0D66E9 ;
+            }
+
+            input {
+                align-self: center;
+                font-size: larger;
+                border-radius: 1em;
+                border: none;
+                margin: 1em;
+                padding: 1em;
+            }
+
+
+        </style>
+    `
     }
 
     // Appends HTML Element quesiton to this.questions

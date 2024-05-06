@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Selector</title>
+    <title>Learn Forge - Class View</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/class_pages.css">
 
@@ -18,22 +18,31 @@
 
 <body class ="p-3 bg-grad" data-bs-theme="light">
 
-    <a id ="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
-    
-    <div id = "nav" class = "nav-bar bg-primary nav-init">
-      <ul class="nav-button-list">
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'dashboard.html';">Dashboard</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'activity.html';">Activity</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'create_quiz.html';">Quiz Creator</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'quiz_list.html';">View Quizzes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_list.html';">View Classes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_creator.html';">Create Classes</li>
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
 
-      </ul>
+    <div id="nav" class="bg-primary nav-init">
 
-      <hr>
-      <a id = "logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+        <ul class="nav-button-list">
+            <a class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</a>
+            <a class="btn btn-primary nav-item" href="dashboard.html" type="button">Dashboard</a>
+            <a class="btn btn-primary nav-item" href="activity.html" type="button">Activity</a>
+            <a class="btn btn-primary nav-item" href="quiz_list.html" type="button">My Quizzes</a>
+            <a class="btn btn-primary nav-item" href="class_list.html" type="button">My Classes</a>
+
+            <hr>
+
+            <a class="btn btn-primary nav-item" href="create_quiz.html" type="button">Quiz Creator</a>
+            <a class="btn btn-primary nav-item" href="class_creator.html" type="button">Class Creator</a>
+
+            
+        </ul>
+
+
+        <hr>
+
+
+        <a id="logout-btn" class="btn btn-primary" type="button">Logout</a>
+
     </div>
 
 
@@ -49,7 +58,7 @@
         
         <hr>
 
-        <div>
+        <div class = "class-view-contents p-3">
 
             <div class="sub-container flex-column">
                 <div class="class-details">
@@ -62,9 +71,11 @@
                 </span>
             </div>
 
-            <hr class="">
+            <hr class="m-3">
 
-            <div class = "student-list">
+            <span class="main-text p-3">Students in this class:</span>
+
+            <div class = "contrast-bg">
 
                 <div class="student-item flex-column">
                     <div class="class-details">
