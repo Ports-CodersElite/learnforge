@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine-browser-runner runSpecs",
+    "test-dbg": "npx jasmine-browser-runner serve",
+    "test-nb": "jasmine",
     "start": "node ./server/server.mjs",
     "db": "node ./server/db_init.js"
   },
@@ -13,5 +15,9 @@
   "dependencies": {
     "express": "^4.18.2",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jasmine-browser-runner": "^2.4.0",
+    "jasmine-core": "^5.1.2"
   }
 }

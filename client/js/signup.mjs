@@ -28,18 +28,21 @@ function Signup() {
     }
     const email = String(emailInput.value);
     const fname = String(fnameInput.value);
-    const mname = String(mnameInput.value);
+    // const mname = String(mnameInput.value);
     const lname = String(lnameInput.value);
     const pw = String(passwordInput.value);
-    auth.createUser(fname, mname, lname, email, pw, selectedRole, "../index.html");
+    auth.createUser(fname, null, lname, email, pw, selectedRole, "../index.html");
 }
 
 // If the user role select in the dropdown menu is student set the global variable selectRole to student.
-function StudentDropdownFunc() {
+export function StudentDropdownFunc() {
     selectedRole = "student";
+    return selectedRole;
   }
   
   // If the user role select in the dropdown menu is student set the global variable selectRole to lecturer.
-  function TeacherDropdownFunc() {
+export function TeacherDropdownFunc() {
     selectedRole = "lecturer";
-  }
+    return selectedRole;
+}
+

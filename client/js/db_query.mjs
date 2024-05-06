@@ -11,6 +11,7 @@ export function submitUser(id, fname, mname, lname, email, role) {
     });
 
     console.log("SENDING " + JSON.stringify(payload));
+    return payload;
 }
 
 export function getProfileData(uidInput, callback) {
@@ -25,7 +26,9 @@ export function getProfileData(uidInput, callback) {
     .then(res => res.json())
     .then(res => {
         callback(res);
+        return res;
     })
+    
 }
 
 export function updateUserProfile(uid, column, newValue) {
