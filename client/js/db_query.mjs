@@ -61,3 +61,18 @@ export function createClass(lecturer_id, className, joinCode) {
         body: JSON.stringify(payload)
     })
 }
+
+export function getClass(lecturer_id, callback) {
+    let payload = [lecturer_id];
+    fetch("/get-classes", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((resData) =>{
+        callback(resData);
+    })
+}

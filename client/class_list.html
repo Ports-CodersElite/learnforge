@@ -8,32 +8,39 @@
     <title>Class Selector</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/class_pages.css">
-
-    <script type="module" src="./js/dashboard.mjs"></script>
     <script type="module" src="./js/navbar.mjs"></script>
+    <script type="module" src="./js/dashboard.mjs"></script>
+    <script type="module" src="./js/viewClass.mjs"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
 </head>
 
-<body class ="p-3 bg-grad" data-bs-theme="light">
+<body class="p-3 bg-grad" data-bs-theme="light">
 
-    <a id ="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
-    
-    <div id = "nav" class = "nav-bar bg-primary nav-init">
-      <ul class="nav-button-list">
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'dashboard.html';">Dashboard</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'activity.html';">Activity</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'quiz_list.html';">View Quizzes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'create_quiz.html';">Quiz Creator</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_list.html';">View Classes</li>
-        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_creator.html';">Create Classes</li>
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
 
-      </ul>
+    <div id="nav" class="nav-bar bg-primary nav-init">
+        <ul class="nav-button-list">
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile
+            </li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'dashboard.html';">
+                Dashboard</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'activity.html';">
+                Activity</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'quiz_list.html';">View
+                Quizzes</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'create_quiz.html';">Quiz
+                Creator</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_list.html';">View
+                Classes</li>
+            <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'class_creator.html';">
+                Create Classes</li>
 
-      <hr>
-      <a id = "logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+        </ul>
+
+        <hr>
+        <a id="logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
     </div>
 
 
@@ -46,7 +53,7 @@
                 <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
             </div>
         </div>
-        
+
         <hr>
 
         <div class="main-container-list">
@@ -56,90 +63,27 @@
                     <span class="main-text">Class name</span>
                     <span class="p-2 sub-text ">Mr. Barry's Class<span>
                 </div>
-                
+
                 <span class="p-1 sub-text">
+                    <p id="displayData"></p>
                     Class summary, added by teacher (Optional, helps teacher to differentiate between classes)
                 </span>
 
-                
+
                 <span class="p-2 sub-text text-end">There are currently 31 Students in this class.</span>
 
             </div>
 
-            <div class="list-item flex-column">
-                <div class="class-details">
-                    <span class="main-text">Class name</span>
-                    <span class="p-2 sub-text ">Ms. Smith's Class<span>
-                </div>
-                
-                <span class="p-1 sub-text">
-                    Class summary, added by teacher (Optional, helps teacher to differentiate between classes)
-                </span>
-
-                
-                <span class="p-2 sub-text text-end">There are currently 12 Students in this class.</span>
-                
-            </div>
-
-            <div class="list-item flex-column">
-                <div class="class-details">
-                    <span class="main-text">Class name</span>
-                    <span class="p-2 sub-text ">Ms. Smith's Class<span>
-                </div>
-                
-                <span class="p-1 sub-text">
-                    Class summary, added by teacher (Optional, helps teacher to differentiate between classes)
-                </span>
-
-                
-                <span class="p-2 sub-text text-end">There are currently 12 Students in this class.</span>
-                
-            </div>
-
-            <div class="list-item flex-column">
-                <div class="class-details">
-                    <span class="main-text">Class name</span>
-                    <span class="p-2 sub-text ">Ms. Smith's Class<span>
-                </div>
-                
-                <span class="p-1 sub-text">
-                    Class summary, added by teacher (Optional, helps teacher to differentiate between classes)
-                </span>
-
-                
-                <span class="p-2 sub-text text-end">There are currently 12 Students in this class.</span>
-                
-            </div>
-
-            <div class="list-item flex-column">
-                <div class="class-details">
-                    <span class="main-text">Class name</span>
-                    <span class="p-2 sub-text ">Ms. Smith's Class<span>
-                </div>
-                
-                <span class="p-1 sub-text">
-                    Class summary, added by teacher (Optional, helps teacher to differentiate between classes)
-                </span>
-
-                
-                <span class="p-2 sub-text text-end">There are currently 12 Students in this class.</span>
-                
-            </div>
-
-           
-            
-
-          
-            </div>
-
-            
-
-            
-
-
         </div>
 
-        <!--
+
+
+
+
+
+    </div>
+
+    <!--
         <h1 class="fs-5" style="text-decoration: underline; font-size: larger;">Welcome to your Dashboard!</h1>
         <h2 class="fs-6">The University of Portsmouth</h2>
 
