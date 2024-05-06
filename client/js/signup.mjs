@@ -28,7 +28,7 @@ function Signup() {
     }
     const email = String(emailInput.value);
     const fname = String(fnameInput.value);
-    // const mname = String(mnameInput.value);
+
     const lname = String(lnameInput.value);
     const pw = String(passwordInput.value);
     auth.createUser(fname, null, lname, email, pw, selectedRole, "../index.html");
