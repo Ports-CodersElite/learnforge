@@ -5,136 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Forge - Profile</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <script type="module" src="./js/dashboard.mjs"></script>
+    <script type="module" src="./js/navbar.mjs"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-        .profilePanel {
-            max-width: 500px;   
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #333; 
-            color: #fff; 
-            border-radius: 5px;
-        }
 
-        .profilePanel h1 {
-            color: #fff; 
-        }
-
-        .profilePanel .profileDetails p,
-        .profilePanel .profileDetails label {
-            color: #fff; 
-        }
-
-        .profilePanel .profileDetails input[type="text"],
-        .profilePanel .profileDetails input[type="email"] {
-            background-color: #555; 
-            color: #fff; 
-        }
-
-        .btn {
-            margin-right: 10px;
-        }
-
-        /* CSS rule for dividing lines */
-        .profilePanel .profileDetails label {
-            display: block;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 5px;
-        }
-
-        /* CSS rule for dark mode */
-        .dark-mode {
-            background-color: #111;
-            color: #fff;
-        }
-
-        /* CSS rule for "light mode" light mode sucks ass right now. Ill sort it once were not under so much pressure */
-        .light-mode {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* CSS rule for red button */
-        .red-btn {
-            background-color: #ff0000;
-            color: #fff;
-        }
-
-        /* CSS rule for profile picture */
-        .profilePicture {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #fff;
-            margin: 0 auto 20px;
-        }
-
-        /* Hover on the pfp and you can use file explorter to upload a cool picture (must be cool) */
-
-        .editProfilePicture {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 30px;
-            height: 30px;
-            background-color: #555;
-            border-radius: 50%;
-            display: none;
-            cursor: pointer;
-        }
-
-        .profilePicture:hover .editProfilePicture {
-            display: block;
-        }
-    </style>
 </head>
-<body data-bs-theme="dark">
+<body class = "bg-grad" data-bs-theme="light">
+
+    <a id ="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
+    
+    <div id = "nav" class = "nav-bar bg-primary nav-init">
+      <ul class="nav-button-list">
+        <li class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</li>
+          <li class="btn btn-primary nav-item" type="button">Dashboard</li>
+          <li class="btn btn-primary nav-item" type="button">Activity</li>
+          <li class="btn btn-primary nav-item" type="button">Quizzes</li>
+          <li class="btn btn-primary nav-item" type="button">Classes</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+          <li class="btn btn-primary nav-item" type="button">showing scroll</li>
+
+      </ul>
+
+      <hr>
+      <a id = "logout-btn" class="btn btn-primary nav-item" type="button">Logout</a>
+    </div>
+
     <section class="profilePanel">
-        <!-- <div class="profilePicture"> add back later if we have the time
-            <div class="editProfilePicture" onclick="document.getElementById('fileInput').click()"></div>
-        </div> -->
-        <h1 class="fs-1">Profile</h1>
-        <div class="profileDetails">
-            <p class="fs-5 mb-0">First Name:</p>
-            <label for="firstNameInput" id="firstNameLabel">John</label>
-            <input type="text" class="form-control d-none" id="firstNameInput">
+        
+        <div class="profile-scroll p-5">
+
+
+            <h1 class="p-2">Profile</h1>
+
+            <div class="profile-contents">
+
+                <hr>
+
+                <button class="btn btn-primary mt-2 profile-btn" id="editBtn" >Edit Details</button>
+
+                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture p-4">
+
+                <div class = "align-form">
+                    <div class = "form-label">
+                        <p class="fs-5 mb-0">First Name</p>
+                    <input type="text" class="form-control" id="nameInput">
+                    </div>
+                    
+                    <div class="form-label">
+                        <p class="fs-5 mb-0">Surname</p>
+                        <input type="password" class="form-control" id="surnameInput">
+                    </div>
+                    
+
+                </div>
+
+                <hr>
+
+                <div class="form-label">
+                    <p class="fs-5 mb-0 ">Email:</p>
+                <input type="password" class="form-control" id="emailInput" placeholder="eg. youremail@domain.com">
+
+                </div>
+
+
+                <div class="form-label">
+                    <p class="fs-5 mb-0">ID Number:</p>
+                <input type="password" class="form-control" id="idNumber" placeholder="eg. 1234567">  
+                </div>
+
+                <hr>
             
-            <p class="fs-5 mb-0">Middle Name:</p>
-            <label for="middleNameInput" id="middleNameLabel"></label>
-            <input type="text" class="form-control d-none" id="middleNameInput">
+            
+                <button class="btn btn-success mt-2 d-none" id="saveBtn" >Save Changes</button>
+                <button class="btn btn-secondary mt-2 d-none" id="cancelBtn" >Cancel Changes</button>
+            
+                
 
-            <p class="fs-5 mb-0">Last Name:</p>
-            <label for="lastNameInput" id="lastNameLabel">Doe</label>
-            <input type="text" class="form-control d-none" id="lastNameInput">
-            <p class="fs-5 mb-0">ID Number:</p>
-            <label for="idInput" id="idLabel">123456789</label>
-            <input type="text" class="form-control d-none" id="idInput">
-            <p class="fs-5 mb-0">Email Address:</p>
-            <label for="emailInput" id="emailLabel">johndoe@example.com</label>
-            <input type="email" class="form-control d-none" id="emailInput">
-            <!-- Add more profile details here later, i am not sure what all the attributes will be, I will refine later-->
-            <!-- removing this for now unless we add it into the database later -->
-            <!-- <p class="fs-5 mb-0">Emergency Contact Number:</p>
-            <label for="phoneInput" id="phoneLabel">123-456-7890</label>
-            <input type="text" class="form-control d-none" id="phoneInput">
-            <p class="fs-5 mb-0">Personal Tutor:</p>
-            <label for="tutorInput" id="tutorLabel">John Smith</label>
-            <input type="text" class="form-control d-none" id="tutorInput"> -->
+            </div>
+
         </div>
+        
 
-        <div>
-            <button class="btn btn-primary mt-2" id="editBtn" >Edit Details</button>
-            <a href="dashboard.html" class="btn btn-primary mt-2 red-btn">Back to Dashboard</a>
-        </div>
+        
+        
 
-        <button class="btn btn-success mt-2 d-none" id="saveBtn" >Save Changes</button>
-        <button class="btn btn-secondary mt-2 d-none" id="cancelBtn" >Cancel Changes</button>
-        <button class="btn btn-dark mt-2" id="themeBtn" >Toggle Theme</button>
+        
     </section>
     <!-- <input type="file" id="fileInput" style="display: none;" onchange="handleImageUpload(event)"> -->
     <script src="./js/profile.mjs" type="module"></script>
+    <script src="./js/navbar.js" type="module"></script>
 
 </body>
 </html>
