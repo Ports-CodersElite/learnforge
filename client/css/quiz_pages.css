@@ -22,3 +22,53 @@
     text-align: end;
     color: rgb(255, 0, 0)
 }
+
+.quiz-name-input{
+    
+    min-height: 5vh;
+    max-width: 20vw;
+}
+
+.quiz-question-input{
+    text-align: start;
+    min-height: 20vh;
+    min-width: 20vw;
+    max-width: 50vw;
+}
+
+.invalid-input{
+    color:rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+.question-choices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#newChoiceBtn{
+    max-width: 20vw;
+}
+
+#newQuestionBtn{
+    max-width: 20vw;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+#createQuizBtn{
+    font-size: larger;
+    font-weight: bolder;
+    max-width: 20vw;
+}
+
+.answer-checkbox-text{
+    font-size: medium;
+    color: rgba(0, 0, 0, 0.553);
+    font-style: italic;
+}
