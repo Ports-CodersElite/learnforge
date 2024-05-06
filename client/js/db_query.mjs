@@ -11,6 +11,7 @@ export function submitUser(id, fname, mname, lname, email, role) {
     });
 
     console.log("SENDING " + JSON.stringify(payload));
+    return payload;
 }
 
 export function getProfileData(uidInput, callback) {
