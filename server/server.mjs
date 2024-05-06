@@ -118,7 +118,7 @@ server.post("/join-class", (req, res) => {
     }
 });
 
-server.post("/get-classes", (req, res) => {
+server.post("/get-classes-lecturer", (req, res) => {
     // format: lecturerId
     if(req != null) {
         lf.getClassesFromLecturer(req.body, (classes) => {
@@ -129,6 +129,46 @@ server.post("/get-classes", (req, res) => {
         res.send({Error: "No data was sent with request"});
     }
 });
+
+server.post("/get-classes-student", (req, res) => {
+    if(req != null) {
+        lf.getClassesFromStudent(req.body, (classes) => {
+            res.send(JSON.stringify(classes));
+        })
+    }
+    else {
+        res.send({Error: "No data was sent with request"});
+    }
+})
+
+server.post("/assign-quiz", (req, res) => {
+    // format: quizId, classId, description
+    if(req != null) {
+        lf.addQuizToClass(req.body[0], req.body[1], req.body[2], (ret) => {
+            if(ret != "SUCCESS") {
+                res.send({Error: ret});
+            }
+            else {
+                let message = "Successfully assigned quiz " + JSON.stringify(req.body);
+                res.send({Success: message});
+            }
+        });
+    }
+    else {
+        res.send({Error: "No data was sent with request"});
+    }
+})
+
+server.post("/get-quizzes-from-class", (req, res) => {
+    if(req != null) {
+        lf.getQuizzesFromClass(req.body, (classes) => {
+            res.send(JSON.stringify(classes));
+        })
+    }
+    else {
+        res.send({Error: "No data was sent with request"});
+    }
+})
 
 function log (mssg, logLevel) {
     if ((logLevel == 1 && logging.level1) || (logLevel == 2 && logging.level2)) {
