@@ -13,7 +13,7 @@ let buttons = {
   loginBtn: null,
   signupBtn: null,
   studentDropdown: null,
-  teacherDropdown: null,
+  lecturerDropdown: null,
 };
 
 
