@@ -24,7 +24,8 @@ function emptyInputValues() {
 // Update the class details table in the database array structure [Lecturer_id, Class_name, Join_code]
 function updateClassDetails() {
     const inputData = obtainInputs();
-    db.createClass(inputData[0],inputData[1],inputData[2]);
+    console.log(sessionStorage.getItem("uid"), inputData[0], inputData[1]);
+    db.createClass(sessionStorage.getItem("uid"), inputData[0], inputData[1]);
     emptyInputValues();
     removeInputBoxes();
     createMessage();

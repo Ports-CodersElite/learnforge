@@ -64,7 +64,7 @@ export function createClass(lecturer_id, className, joinCode) {
 
 export function getClass(lecturer_id, callback) {
     let payload = [lecturer_id];
-    fetch("/get-classes", {
+    fetch("/get-classes-lecturer", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
