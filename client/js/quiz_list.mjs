@@ -1,3 +1,5 @@
+import * as db from './db_query.mjs';
+
 window.addEventListener('load', init);
 
 let dummyQuiz1 = {
@@ -89,15 +91,28 @@ let dummyQuiz3 = {
 }
 
 
+
 let quizes = [dummyQuiz1, dummyQuiz2, dummyQuiz3];
 
 function init() {
     console.log('quiz_list.mjs running');
-    // quizlist_div = document.querySelector('#quizListDiv');
+    let quizzes = [];
+    db.getQuizzes(sessionStorage.getItem('uid'), (res) => {
+
+        for(let i = 0; i < res.length; i ++) {
+            console.log(res[i]);
+            console.log(JSON.parse(res[i]));
+            quizzes.push({
+                quizName: JSON.parse(res[i]).quiz_title,
+                questions: JSON.parse(res[i]).questions
+            });
+        }
+
+        let quizListManager = document.querySelector('#quizListManager');
+        quizListManager.setQuizes(quizzes);
+    });
 
 
-    let quizListManager = document.querySelector('#quizListManager');
-    quizListManager.setQuizes(quizes);
+    
 }
-
 

@@ -165,8 +165,11 @@ export function getQuizzesFromLecturer(lecturerId, callback) {
                 }
                 let data = [];
                 rows.forEach((row) => {
-                    data.push(row);
+                    let str = '{"quiz_title": "' + row.quiz_title + '", "questions": ' + row.quiz_data + '}'
+                    //console.log(row);
+                    data.push(str);
                 });
+                console.log(data);
                 callback(data);
             })
         }

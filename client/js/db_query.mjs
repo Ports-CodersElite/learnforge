@@ -77,6 +77,21 @@ export function getClass(lecturer_id, callback) {
     })
 }
 
+export function getQuizzes(lecturerId, callback) {
+    let payload = [lecturerId];
+    fetch("/get-quizzes-from-lecturer", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((resData) =>{
+        callback(resData);
+    })
+}
+
 export function joinClass(studentId, joinCode) {
     let payload = [studentId, joinCode];
     console.log(payload);
@@ -92,3 +107,4 @@ export function joinClass(studentId, joinCode) {
         console.log(resData);
     })
 }
+
