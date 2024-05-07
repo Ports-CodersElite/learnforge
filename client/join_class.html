@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Forge - Profile</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="./js/navbar.mjs" type="module"></script>
+</head>
+ 
+<body class="p-3 bg-grad" data-bs-theme="light">
+
+    <a id="open-nav-btn" class="btn btn-primary nav-toggle-btn" type="button">=</a>
+
+    <div id="nav" class="bg-primary nav-init">
+
+        <ul class="nav-button-list">
+            <a class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</a>
+            <a class="btn btn-primary nav-item" href="dashboard.html" type="button">Dashboard</a>
+            <a class="btn btn-primary nav-item" href="activity.html" type="button">Activity</a>
+            <a class="btn btn-primary nav-item" href="quiz_list.html" type="button">My Quizzes</a>
+            <a class="btn btn-primary nav-item" href="class_list.html" type="button">My Classes</a>
+            <hr>
+            <a class="btn btn-primary nav-item" href="create_quiz.html" type="button">Quiz Creator</a>
+            <a class="btn btn-primary nav-item" href="class_creator.html" type="button">Class Creator</a>
+            <a class="btn btn-primary nav-item" href="join_class.html" type="button">Join Class</a>
+        </ul>
+        <hr>
+        <a id="logout-btn" class="btn btn-primary" type="button">Logout</a>
+
+    </div>
+
+    <section class="profilePanel">
+        
+        <div>
+            <h1 class="p-2">Join Class</h1>
+            <div class="profile-contents">
+                <p class="fs-5 mb-0">Join Code:</p>
+                <input type="text" id="joinCodeInput" class="form-control">
+                <button class="btn btn-primary p-3", id="submitBtn">Join</button>
+                <hr>
+            </div>
+
+        </div>
+    </section>
+    <script src="./js/join_class.mjs" type="module"></script>
+
+</body>
+</html>
