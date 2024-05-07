@@ -84,7 +84,7 @@ export function getProfile(uid, callback) {
                 else {
                     callback([row.user_fname, row.user_mname, row.user_lname, row.user_emailaddress]);
                 }
-            });    
+            });
         }
     });
 }
