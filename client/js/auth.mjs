@@ -112,10 +112,12 @@ onAuthStateChanged(auth, (user) => {
     console.log('UID: ' + user.uid);
     sessionStorage.setItem('email', user.email);
     sessionStorage.setItem('uid', user.uid);
+    //sessionStorage.setItem('role', user.role);
   } else {
     console.log('Session persistence: (Logged Out)');
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('uid');
+    //sessionStorage.removeItem('role', user.role);
   }
 }) 
 

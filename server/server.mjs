@@ -170,6 +170,19 @@ server.post("/get-quizzes-from-class", (req, res) => {
     }
 })
 
+server.post("/get-quizzes-from-lecturer", (req, res) => {
+    console.log("Got request for quizzes from ", req.body[0])
+    if(req != null) {
+        lf.getQuizzesFromLecturer(req.body[0], (classes) => {
+            console.log(JSON.stringify(classes))
+            res.send(JSON.stringify(classes));
+        })
+    }
+    else {
+        res.send({Error: "No data was sent with request"});
+    }
+})
+
 function log (mssg, logLevel) {
     if ((logLevel == 1 && logging.level1) || (logLevel == 2 && logging.level2)) {
         console.log(mssg);

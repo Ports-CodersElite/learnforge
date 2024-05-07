@@ -84,7 +84,7 @@ export function getProfile(uid, callback) {
                 else {
                     callback([row.user_fname, row.user_mname, row.user_lname, row.user_emailaddress]);
                 }
-            });    
+            });
         }
     });
 }
@@ -165,8 +165,11 @@ export function getQuizzesFromLecturer(lecturerId, callback) {
                 }
                 let data = [];
                 rows.forEach((row) => {
-                    data.push(row);
+                    let str = '{"quiz_title": "' + row.quiz_title + '", "questions": ' + row.quiz_data + '}'
+                    //console.log(row);
+                    data.push(str);
                 });
+                console.log(data);
                 callback(data);
             })
         }
