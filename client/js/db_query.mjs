@@ -107,4 +107,3 @@ export function joinClass(studentId, joinCode) {
         console.log(resData);
     })
 }
-
