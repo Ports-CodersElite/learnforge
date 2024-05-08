@@ -87,7 +87,6 @@ class QuizCreatorQuestion extends HTMLElement {
                 this.answer.push(option.optionText);
             }
         }
-
     }
 }
 customElements.define('quiz-creator-question', QuizCreatorQuestion);

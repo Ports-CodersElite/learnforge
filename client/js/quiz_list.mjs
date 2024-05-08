@@ -12,12 +12,8 @@ function init() {
                 questions: JSON.parse(res[i]).questions
             });
         }
-
         let quizListManager = document.querySelector('#quizListManager');
         quizListManager.setQuizes(quizzes);
     });
-
-
-    
 }
 

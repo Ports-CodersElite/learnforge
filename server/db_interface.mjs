@@ -111,7 +111,7 @@ export function updateUserProfile(uid, column, newValue,  callback) {
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
 
 export function createQuiz(uid, quizTitle, quizData) {
     openDb((res) => {
@@ -320,33 +320,3 @@ export function addQuizToClass(quizId, joinCode, description, callback) {
     })
 }
 
-
-
-
-
-
-
-//createLecturer("24", "lectf", "", "lectl", "lemail1");
-//createQuiz("24", "mathtest", "{Lol}");
-//createStudent("sid2", "stdf", "", "stdl", "semail2");
-//createClass("24", "Maths", "joinmaths", () =>{});
-//addStudentToClass("sid2", "joinmaths", () =>{});
-//addQuizToClass("4555186177299496960", "joinmaths", "", ()=>{});
-
-//addStudentToClass("sid2", "joinmaths", () =>{});
-
-//displayTable("assignment_details");
-
-//getClassesFromLecturer("lid1", (res)=>{console.log(res)});
-// getClassesFromStudent("sid2", (res) => {
-//     console.log(res);
-// });
-
-// getQuizzesFromClass("joinmaths", (res) => {
-//     console.log(res);
-// })
-
-
-// getQuizzesFromLecturer("lid1", (res) => {
-//     console.log(res);
-// })
