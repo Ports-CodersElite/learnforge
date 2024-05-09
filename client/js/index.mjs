@@ -33,5 +33,3 @@ function Login() {
   const pw = String(passwordInput.value);
   auth.signIn(email, pw, "../dashboard.html");
 }
-
-

@@ -80,26 +80,3 @@ function cancelChanges() {
     document.getElementById("saveBtn").classList.add("d-none");
     document.getElementById("cancelBtn").classList.add("d-none");
 }
-
-function toggleTheme() {
-    var body = document.body;
-    body.classList.toggle("dark-mode");
-    body.classList.toggle("light-mode");
-}
-
-/* This functions just deals with uplaodng the profile picture fomr the users pc, ignore it when adding in functionality */
-function handleImageUpload(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        var image = document.createElement("img");
-        image.src = e.target.result;
-        image.style.width = "100%";
-        image.style.height = "100%";
-        image.style.objectFit = "cover";
-        document.querySelector(".profilePicture").innerHTML = "";
-        document.querySelector(".profilePicture").appendChild(image);
-
-    };
-    reader.readAsDataURL(file);
-}
