@@ -10,6 +10,7 @@
     <script type="module" src="js/webcomp/quiz_manager.mjs"></script>
     <script type="module" src="./js/navbar.mjs"></script>
     <script type="module" src="./js/dashboard.mjs"></script>
+    <script type="module" src="./js/class_creator.mjs"></script>
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/quiz_pages.css">
@@ -25,7 +26,8 @@
     <div id="nav" class="bg-primary nav-init">
 
         <ul class="nav-button-list">
-            <a class="btn btn-primary nav-item" type="button" onclick="window.location.href = 'profile.html';">Profile</a>
+            <a class="btn btn-primary nav-item" type="button"
+                onclick="window.location.href = 'profile.html';">Profile</a>
             <a class="btn btn-primary nav-item" href="dashboard.html" type="button">Dashboard</a>
             <a class="btn btn-primary nav-item" href="activity.html" type="button">Activity</a>
             <a class="btn btn-primary nav-item" href="quiz_list.html" type="button">My Quizzes</a>
@@ -36,7 +38,7 @@
             <a class="btn btn-primary nav-item" href="create_quiz.html" type="button">Quiz Creator</a>
             <a class="btn btn-primary nav-item" href="class_creator.html" type="button">Class Creator</a>
 
-            
+
         </ul>
 
 
@@ -47,44 +49,37 @@
 
     </div>
 
-      <div class="p-5 main-container">
+    <div class="p-5 main-container">
 
         <div class="show-login">
             <h1>Class Creator</h1>
             <div>
                 <span class="p-3 sub-text" id="loggedInAs">Logged in as John Doe</span>
-                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
             </div>
         </div>
-        
+
         <hr>
 
         <div class="main-container-list">
 
             <div class="sub-container">
-                <span class="sub-text text-end">Class Teacher: Mrs. Smith</span>
-                <h4>Enter a name for your class:</h4>
-                <input type="text" class="quiz-name-input form-control" placeholder="English Class A" id="className">
-
-                <span class="sub-text text-end invalid-input">*Message that would display for invalid inputs.</span>
+                <h4>Class name:</h4>
+                <input type="text" class="m-2 quiz-name-input form-control class-details-input"
+                    placeholder="e.g. Class1A" id="className">
             </div>
 
             <div class="sub-container">
-                <h4>Add a summary of this class:</h4>
-                <span class="sub-text ">*this can help both students and teachers to differentiate from classes which perhaps have similar names</span>
-                <input type="text" class="m-2 quiz-name-input form-control" placeholder="eg. Mrs Smith's Monday English Class" id="className">
-
-                <span class="sub-text text-end invalid-input">*Message that would display for invalid inputs.</span>
+                <h4>Join Code:</h4>
+                <input type="text" class="m-2 quiz-name-input form-control class-details-input" placeholder="e.g. 2"
+                    id="className">
             </div>
 
             <div class="button-container">
                 <button class="btn btn-primary p-3" id="createQuizBtn">Create class</button>
             </div>
 
-        </div>
 
-    
-    <script src="./js/navbar.js" type="module"></script>
+            <script src="./js/navbar.mjs" type="module"></script>
 </body>
 
 </html>

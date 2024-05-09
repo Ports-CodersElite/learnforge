@@ -5,7 +5,7 @@ window.addEventListener("load", eventListeners)
 let buttons = {
     signupBtn: null,
     studentDropdown: null,
-    teacherDropdown: null
+    lecturerDropdown: null
 }
 
 let inputs = {
@@ -20,7 +20,7 @@ let selectedRole = null;
 function eventListeners() {
     buttons.signupBtn = document.querySelector("#signupBtn");
     buttons.studentDropdown = document.querySelector("#studentDropdown");
-    buttons.lecturerDropdown = document.querySelector("#teacherDropdown");
+    buttons.lecturerDropdown = document.querySelector("#lecturerDropdown");
     inputs.fname = document.querySelector('#fnameInput');
     inputs.lname = document.querySelector('#lnameInput');
     inputs.email = document.querySelector('#emailInput');

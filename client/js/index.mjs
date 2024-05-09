@@ -13,7 +13,7 @@ let buttons = {
   loginBtn: null,
   signupBtn: null,
   studentDropdown: null,
-  teacherDropdown: null,
+  lecturerDropdown: null,
 };
 
 
@@ -33,5 +33,3 @@ function Login() {
   const pw = String(passwordInput.value);
   auth.signIn(email, pw, "../dashboard.html");
 }
-
-

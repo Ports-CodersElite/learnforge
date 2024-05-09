@@ -35,7 +35,7 @@ CREATE TABLE class_student(
 
 CREATE TABLE quiz_details(
     quiz_id INTEGER PRIMARY KEY,
-    creator_id TEXT NOT NULL, 
+    creator_id TEXT NOT NULL,
     quiz_title TEXT NOT NULL,
     quiz_data TEXT NOT NULL,
     FOREIGN KEY(creator_id) REFERENCES lecturer_details(lecturer_id)
@@ -45,11 +45,9 @@ CREATE TABLE assignment_details(
     assignment_id INTEGER PRIMARY KEY,
     class_id INTEGER NOT NULL,
     quiz_id INTEGER NOT NULL,
-    deadline_date DATETIME NOT NULL,
     issue_date DATETIME NOT NULL,
-    passmark INTEGER NOT NULL,
     description INTEGER NOT NULL,
-    FOREIGN KEY(class_id) REFERENCES class_details(class_id),
+    FOREIGN KEY(class_id) REFERENCES class_details(join_code),
     FOREIGN KEY(quiz_id) REFERENCES quiz_details(quiz_id)
 );
 

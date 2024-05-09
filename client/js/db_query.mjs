@@ -53,3 +53,60 @@ export function uploadQuiz(uid, quizTitle, quizData) {
         body: JSON.stringify(payload)
     })
 }
+
+export function createClass(lecturer_id, className, joinCode) {
+    let payload = [lecturer_id, className, joinCode];
+    fetch('/create-class', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+}
+
+export function getClass(lecturer_id, callback) {
+    let payload = [lecturer_id];
+    fetch("/get-classes-lecturer", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((resData) =>{
+        callback(resData);
+    })
+}
+
+export function getQuizzes(lecturerId, callback) {
+    let payload = [lecturerId];
+    fetch("/get-quizzes-from-lecturer", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((resData) =>{
+        callback(resData);
+    })
+}
+
+export function joinClass(studentId, joinCode) {
+    let payload = [studentId, joinCode];
+    console.log(payload);
+    fetch("/join-class", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((resData) =>{
+        console.log(resData);
+    })
+}

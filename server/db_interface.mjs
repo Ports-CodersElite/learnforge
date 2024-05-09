@@ -84,7 +84,7 @@ export function getProfile(uid, callback) {
                 else {
                     callback([row.user_fname, row.user_mname, row.user_lname, row.user_emailaddress]);
                 }
-            });    
+            });
         }
     });
 }
@@ -111,7 +111,7 @@ export function updateUserProfile(uid, column, newValue,  callback) {
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
 
 export function createQuiz(uid, quizTitle, quizData) {
     openDb((res) => {
@@ -165,8 +165,11 @@ export function getQuizzesFromLecturer(lecturerId, callback) {
                 }
                 let data = [];
                 rows.forEach((row) => {
-                    data.push(row);
+                    let str = '{"quiz_title": "' + row.quiz_title + '", "questions": ' + row.quiz_data + '}'
+                    //console.log(row);
+                    data.push(str);
                 });
+                console.log(data);
                 callback(data);
             })
         }
@@ -232,29 +235,88 @@ export function getClassesFromLecturer(lecturerId, callback) {
                 rows.forEach((row) => {
                     data.push(row);
                 })
+                console.log(typeof(data));
+                console.log(data);
                 callback(data);
             });
         }
     });
 }
 
-// createQuiz("lid1", "mathtest", "{Lol}");
-// createQuiz("lid1", "mathtest2", "{Lol2}");
+export function getClassesFromStudent(studentId, callback) {
+    openDb((res) => {
+        if(res) {
+            let sql = `SELECT class_details.join_code, class_details.lecturer_id, class_details.class_name FROM class_details JOIN class_student WHERE class_details.join_code = class_student.join_code AND class_student.student_id = '` + studentId + `';`;
+            db.all(sql, [], (err, rows) => {
+                if(err) {
+                    callback(err.message);
+                    return console.log(err.message);
+                }
+                let data = [];
+                rows.forEach((row) => {
+                    data.push(row);
+                })
+                callback(data);
+            });
+        }
+    })
+}
 
-// createStudent("sid8", "stdfname", "", "stdlname", "semail8");
-// createLecturer("lid1", "lectf", "", "lectl", "lemail1");
-// createStudent("sid2", "stdf", "", "stdl", "semail2");
-// createClass("lid1", "Maths", "joinmaths");
-// createClass("lid1", "English", "joinenglish");
-// createClass("lid1", "MATHS 2", "JOIN MATHS");
+export function getQuizzesFromClass(joinCode, callback) {
+    openDb((res) => {
+        if(res) {
+            let sql = `SELECT quiz_details.quiz_id, quiz_details.creator_id, quiz_details.quiz_title, quiz_details.quiz_data 
+                FROM quiz_details
+                JOIN assignment_details
+                WHERE quiz_details.quiz_id = assignment_details.quiz_id
+                AND assignment_details.class_id = '` + joinCode + `';`;
+            
+            db.all(sql, [], (err, rows) => {
+                if(err) {
+                    callback(err.message);
+                    return console.log(err.message);
+                }
+                let data = [];
+                rows.forEach((row) => {
+                    data.push(row);
+                })
+                callback(data);
+            });
+            
+        }
+    })
 
-//addStudentToClass("sid2", "joinmaths");
+}
 
-//displayTable("class_student");
+export function addQuizToClass(quizId, joinCode, description, callback) {
+    openDb((res) => {
+        if(res) {
+            let checkSql = `SELECT * FROM quiz_details WHERE quiz_id = '` + quizId + `';`;
+            db.get(checkSql, [], (err, row) => {
+                if(err) {
+                    callback(err.message);
+                    return console.log(err.message);
+                }
+                else{
+                    if (row == undefined) {
+                        callback("Quiz ID doesn't exist");
+                        return;
+                    }
+                    else {
+                        let sql = `INSERT INTO assignment_details (class_id, quiz_id, issue_date, description) VALUES (?, ?, TIME('now'), ?)`;
+                        db.run(sql, [joinCode, quizId, description], (err) => {
+                            if(err){
+                                callback(err.message);
+                                return console.log(err.message);
+                            }
+                            else {
+                                callback("SUCCESS");
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    })
+}
 
-//getClassesFromLecturer("lid1", (res)=>{console.log(res)});
-
-
-// getQuizzesFromLecturer("lid1", (res) => {
-//     console.log(res);
-// })

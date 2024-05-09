@@ -1,4 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
+const fs = require('node:fs');
+
 
 sql = `
 CREATE TABLE student_details(
@@ -44,11 +46,9 @@ CREATE TABLE assignment_details(
     assignment_id INTEGER PRIMARY KEY,
     class_id INTEGER NOT NULL,
     quiz_id INTEGER NOT NULL,
-    deadline_date DATETIME NOT NULL,
     issue_date DATETIME NOT NULL,
-    passmark INTEGER NOT NULL,
     description INTEGER NOT NULL,
-    FOREIGN KEY(class_id) REFERENCES class_details(class_id),
+    FOREIGN KEY(class_id) REFERENCES class_details(join_code),
     FOREIGN KEY(quiz_id) REFERENCES quiz_details(quiz_id)
 );
 
@@ -62,13 +62,14 @@ CREATE TABLE quiz_history(
     quiz_status TEXT NOT NULL,
     FOREIGN KEY(student_id) REFERENCES student_details(student_id),
     FOREIGN KEY(quiz_id) REFERENCES quiz_details(quiz_id)
-);`
+);
+`
 
 
 // Only needs to be called one time to create database file
 function init() {
     console.log("INITIALIZING DB");
-    const db = new sqlite3.Database("./learnforge.db", sqlite3.OPEN_READWRITE, (err) =>{
+    const db = new sqlite3.Database("./server/learnforge.db", sqlite3.OPEN_READWRITE, (err) =>{
         if (err) return console.error(err.message);
     });
     db.exec(sql, (err) => {
