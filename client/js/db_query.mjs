@@ -26,9 +26,8 @@ export function getProfileData(uidInput, callback) {
     .then(res => res.json())
     .then(res => {
         callback(res);
-        return res;
     })
-    
+    return payload;
 }
 
 export function updateUserProfile(uid, column, newValue) {
@@ -40,6 +39,7 @@ export function updateUserProfile(uid, column, newValue) {
         },
         body: JSON.stringify(payload)
     });
+    return payload
 }
 
 export function uploadQuiz(uid, quizTitle, quizData) {
@@ -52,6 +52,7 @@ export function uploadQuiz(uid, quizTitle, quizData) {
         },
         body: JSON.stringify(payload)
     })
+    return payload;
 }
 
 export function createClass(lecturer_id, className, joinCode) {
@@ -63,6 +64,7 @@ export function createClass(lecturer_id, className, joinCode) {
         },
         body: JSON.stringify(payload)
     })
+    return payload;
 }
 
 export function getClass(lecturer_id, callback) {
@@ -78,6 +80,7 @@ export function getClass(lecturer_id, callback) {
     .then((resData) =>{
         callback(resData);
     })
+    return 'success';
 }
 
 export function getQuizzes(lecturerId, callback) {
