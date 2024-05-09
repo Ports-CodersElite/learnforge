@@ -11,6 +11,7 @@ export function submitUser(id, fname, mname, lname, email, role) {
     });
 
     console.log("SENDING " + JSON.stringify(payload));
+    return payload;
 }
 
 export function getProfileData(uidInput, callback) {
@@ -26,6 +27,7 @@ export function getProfileData(uidInput, callback) {
     .then(res => {
         callback(res);
     })
+    return payload;
 }
 
 export function updateUserProfile(uid, column, newValue) {
@@ -37,6 +39,7 @@ export function updateUserProfile(uid, column, newValue) {
         },
         body: JSON.stringify(payload)
     });
+    return payload
 }
 
 export function uploadQuiz(uid, quizTitle, quizData) {
@@ -49,6 +52,7 @@ export function uploadQuiz(uid, quizTitle, quizData) {
         },
         body: JSON.stringify(payload)
     })
+    return payload;
 }
 
 export function createClass(lecturer_id, className, joinCode) {
@@ -60,6 +64,7 @@ export function createClass(lecturer_id, className, joinCode) {
         },
         body: JSON.stringify(payload)
     })
+    return payload;
 }
 
 export function getClass(lecturer_id, callback) {
@@ -75,6 +80,7 @@ export function getClass(lecturer_id, callback) {
     .then((resData) =>{
         callback(resData);
     })
+    return 'success';
 }
 
 export function getQuizzes(lecturerId, callback) {
